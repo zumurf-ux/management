@@ -141,7 +141,7 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .fee-무상{background:rgba(0,229,160,.1);color:var(--g);border:1px solid rgba(0,229,160,.2)}
 .fee-유상{background:rgba(255,77,109,.1);color:var(--r);border:1px solid rgba(255,77,109,.2)}
 /* TOAST */
-
+.toast{position:fixed;bottom:16px;right:16px;background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:10px 14px;font-size:12px;font-weight:500;box-shadow:var(--sh);animation:su .22s;z-index:999;display:flex;align-items:center;gap:6px}
 .tok{border-color:rgba(0,229,160,.3);color:var(--g)}
 .terr{border-color:rgba(255,77,109,.3);color:var(--r)}
 .tinf{border-color:rgba(77,159,255,.3);color:var(--b)}
@@ -150,81 +150,6 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .ei{font-size:32px}
 @keyframes fi{from{opacity:0}to{opacity:1}}
 @keyframes su{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
-
-/* ═══ 모바일 최적화 (768px 이하) ═══ */
-@media(max-width:768px){
-  /* NAV */
-  nav{height:auto;flex-direction:column;align-items:flex-start;padding:0;}
-  .brand{padding:10px 12px;width:100%;}
-  .brand-logo{height:22px;}
-  .nt-wrap{display:flex;overflow-x:auto;width:100%;padding:4px 8px 6px;gap:3px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-  .nt-wrap::-webkit-scrollbar{display:none;}
-  .nt{white-space:nowrap;padding:5px 10px;font-size:11px;flex-shrink:0;}
-
-  /* 메인 콘텐츠 */
-  .main{padding:0;}
-  .page{padding:8px;}
-
-  /* KPI 카드 2열 */
-  .kr{grid-template-columns:repeat(2,1fr)!important;gap:8px;padding:8px;}
-  .kpi{padding:10px 12px;}
-  .kv{font-size:18px;}
-  .kl{font-size:10px;}
-  .ks{font-size:9px;}
-
-  /* 차트 영역 1열 */
-  .dr2{grid-template-columns:1fr!important;gap:8px;padding:0 8px 8px;}
-  .dc{padding:12px;}
-
-  /* 툴바 */
-  .tb2{flex-wrap:wrap;gap:5px;padding:6px 8px;}
-  .tbl{flex-wrap:wrap;gap:4px;}
-  .tbr{flex-wrap:wrap;gap:4px;}
-  .sw{min-width:150px;}
-  select.fs{font-size:12px;}
-  .tbr-add{font-size:11px;padding:0 10px;}
-
-  /* 카드 그리드 */
-  .cg3{grid-template-columns:repeat(2,1fr)!important;gap:8px;padding:8px;}
-  .cc{padding:10px;}
-
-  /* 테이블 */
-  .tw{overflow-x:auto;}
-  table{min-width:500px;}
-
-  /* 모달 */
-  .modal{width:96vw!important;max-width:96vw!important;margin:10px auto;max-height:90vh;overflow-y:auto;}
-  .mt{padding:12px 14px;}
-  .mc{padding:12px 14px;}
-  .r2{grid-template-columns:1fr!important;}
-  .r3{grid-template-columns:1fr!important;}
-  .fg label{font-size:11px;}
-  .fg input,.fg select,.fg textarea{font-size:14px;}
-
-  /* 견적서 */
-  .qp{padding:10px;}
-  .qp-hd{flex-direction:column;gap:8px;}
-
-  /* 버튼 */
-  .btn{font-size:12px;padding:7px 12px;}
-  .vbtn{min-width:28px;padding:0 8px;font-size:12px;}
-  .tbr-ico{padding:0 8px;font-size:12px;}
-
-  /* 페이저 */
-  .pager{flex-wrap:wrap;gap:4px;padding:8px;}
-  .pi{font-size:11px;}
-
-  /* 대시보드 Top 테이블 */
-  #d-tp,#d-rc{font-size:10px;}
-}
-
-/* ═══ 소형 모바일 (480px 이하) ═══ */
-@media(max-width:480px){
-  .kr{grid-template-columns:1fr 1fr!important;}
-  .kv{font-size:16px;}
-  .cg3{grid-template-columns:1fr!important;}
-  .nt{font-size:10px;padding:4px 8px;}
-}
 @media print{
   @page{size:A4 portrait;margin:8mm}
   html,body{height:auto!important;overflow:visible!important;background:#fff!important}
@@ -339,7 +264,29 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .pr-add-btn:hover,.pr-edit-btn:hover{background:var(--s3);}
 .pr-edit-btn{background:var(--s2);color:var(--mu);border:1px solid var(--bd);border-radius:5px;padding:5px 8px;font-size:10px;cursor:pointer;white-space:nowrap;}
 select.fs{height:32px;box-sizing:border-box;}
-.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--s2);border:1px solid var(--b2);border-radius:10px;padding:12px 20px;font-size:13px;font-weight:600;box-shadow:0 8px 32px rgba(0,0,0,.5);z-index:99999;animation:su .22s;text-align:center;min-width:200px;max-width:80vw;}
+.nt-wrap{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:wrap;}
+.nt-wrap::-webkit-scrollbar{display:none;}
+@media(max-width:768px){
+  nav{height:auto;flex-direction:column;padding:0;}
+  .brand{padding:8px 12px;}
+  .nt-wrap{flex-wrap:nowrap;padding:4px 8px 6px;gap:3px;}
+  .nt{white-space:nowrap;padding:5px 10px;font-size:11px;flex-shrink:0;}
+  .kr{grid-template-columns:repeat(2,1fr)!important;gap:8px;padding:8px;}
+  .dr2{grid-template-columns:1fr!important;gap:8px;padding:0 8px 8px;}
+  .cg3{grid-template-columns:repeat(2,1fr)!important;gap:8px;padding:8px;}
+  .r2{grid-template-columns:1fr!important;}
+  .r3{grid-template-columns:1fr!important;}
+  .modal{width:96vw!important;max-width:96vw!important;}
+  .tw{overflow-x:auto;}
+  table{min-width:500px;}
+  .tb2{flex-wrap:wrap;gap:5px;}
+  .tbl{flex-wrap:wrap;gap:4px;}
+  .tbr{flex-wrap:wrap;gap:4px;}
+}
+@media(max-width:480px){
+  .kr{grid-template-columns:1fr 1fr!important;}
+  .cg3{grid-template-columns:1fr!important;}
+}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -352,7 +299,7 @@ select.fs{height:32px;box-sizing:border-box;}
   </div>
   <div class="nt-wrap">
   <div class="nt-wrap">
-    <button class="nt on"  onclick="goP('dash')">📊 대시보드</button>
+    <button class="nt on" onclick="goP('dash')">📊 대시보드</button>
     <button class="nt" onclick="goP('ledger')">📒 매입·매출</button>
     <button class="nt" onclick="goP('project')">🗂 프로젝트</button>
     <button class="nt" onclick="goP('customer')">👥 고객관리</button>
@@ -360,8 +307,8 @@ select.fs{height:32px;box-sizing:border-box;}
     <button class="nt" onclick="goP('price')">💰 단가표</button>
     <button class="nt" onclick="goP('quote')">📋 견적서</button>
     <button class="nt" onclick="goP('qlist')">📨 견적관리</button>
-    <button class="nt" onclick="goP('as')">🔧 A/S관리</button></div>
-
+    <button class="nt" onclick="goP('as')">🔧 A/S관리</button>
+  </div>
   </div>
 </nav>
 <div class="pages">
@@ -384,6 +331,7 @@ select.fs{height:32px;box-sizing:border-box;}
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">🎨 디자인 의뢰 현황</div><div id="d-design" style="display:flex;flex-direction:column;gap:6px"></div></div><div class="dc"><div class="ct">🏪 업종 분포도</div><div style="display:flex;gap:10px;align-items:flex-start"><div style="position:relative;flex-shrink:0"><canvas id="d-ind-donut" width="120" height="120"></canvas><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none"><div style="font-size:18px;font-weight:700;color:var(--tx)" id="d-ind-total">0</div><div style="font-size:9px;color:var(--mu)">고객</div></div></div><div id="d-ind-legend" style="flex:1;display:flex;flex-direction:column;gap:4px;padding-top:4px"></div></div></div></div>
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">📍 고객 지역 분포</div><div id="d-region-map"></div></div><div class="dc"><div class="ct">📦 분류별 매입</div><div id="d-cat"></div></div></div>
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">🏪 거래처 매입 Top 8</div><table id="d-tp" style="width:100%;border-collapse:collapse;font-size:11px"></table></div><div class="dc"><div class="ct">🕐 최근 거래 10건</div><table id="d-rc" style="width:100%;border-collapse:collapse;font-size:11px"></table></div></div>
+  <div style="padding:0 18px 18px;"><div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;"><div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">💾 데이터 백업 / 복원</div><div style="font-size:11px;color:var(--mu);">PC↔GitHub 환경 변경 시 사용</div></div><div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn bg bsm" onclick="exportAllData()">📤 내보내기</button><button class="btn bs2 bsm" onclick="document.getElementById('import-file').click()">📥 가져오기</button><input type="file" id="import-file" accept=".json" style="display:none" onchange="importAllData(event)"></div></div></div>
 </div>
 
 <div class="page" id="pg-ledger">
@@ -487,7 +435,7 @@ select.fs{height:32px;box-sizing:border-box;}
           <div class="fg"><label>연락처</label><input type="text" id="q-tel"></div>
           <div class="fg"><label>이메일</label><input type="text" id="q-em"></div>
         </div>
-        <div class="fg" style="margin-top:8px"><label>견적명 / 프로젝트명</label><input type="text" id="q-pj-sel" list="dl-qpj" placeholder="프로젝트명 입력 또는 선택" oninput="applyPjToQuote()" autocomplete="off" style="width:100%;background:var(--s2);color:var(--tx);border:1px solid var(--bd);border-radius:6px;padding:0 10px;height:34px;font-size:13px;box-sizing:border-box;margin-bottom:5px;"><datalist id="dl-qpj"></datalist></div>
+        <div class="fg" style="margin-top:8px"><label>견적명 / 프로젝트명</label><input type="text" id="q-title" placeholder="예: OOO 식당 브랜드 디자인"></div>
         <div class="r2" style="margin-top:8px">
           <div class="fg"><label>결제조건</label><input type="text" id="q-payc" value="계약서 조항에 따름"></div>
           <div class="fg"><label>담당자</label><input type="text" id="q-staff" value="백승구 대표 / 010-2085-8781"></div>
@@ -702,7 +650,7 @@ select.fs{height:32px;box-sizing:border-box;}
     <div class="r2"><div class="fg"><label>등급</label><select id="mc-gr"><option>VIP</option><option>A</option><option>B</option><option>C</option><option>잠재</option><option>휴면</option></select></div><div class="fg"><label>유입경로</label><select id="mc-inf"><option>소개</option><option>네이버검색</option><option>인스타그램</option><option>유튜브</option><option>지도/플랫폼</option><option>재방문</option><option>기타</option></select></div></div>
     <div class="fg">
       <label>주소</label>
-      <div style="display:flex;gap:5px;margin-bottom:4px"><input type="text" id="mc-zip" placeholder="우편번호" style="width:90px;flex-shrink:0"><input type="text" id="mc-ad" placeholder="도로명 주소" style="flex:1;"></div>
+      <div style="display:flex;gap:5px;margin-bottom:4px"><input type="text" id="mc-zip" placeholder="우편번호" style="width:80px;flex-shrink:0" readonly><button type="button" class="btn bsm bs2" onclick="openAddrSearch()">🔍 검색</button></div><input type="text" id="mc-ad" placeholder="도로명 주소" readonly style="margin-bottom:3px;background:var(--s2)">
       <input type="text" id="mc-ad2" placeholder="상세주소">
       <input type="hidden" id="mc-lat"><input type="hidden" id="mc-lng"><input type="hidden" id="mc-place-id">
     </div>
@@ -868,16 +816,7 @@ select.fs{height:32px;box-sizing:border-box;}
 </div></div>
 
 
-<div id="m-addr" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);align-items:center;justify-content:center;" onclick="if(event.target===this)closeAddrSearch();">
-  <div style="background:#fff;border-radius:10px;width:92%;max-width:500px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1a2b6b;flex-shrink:0;">
-      <span style="color:#fff;font-weight:700;font-size:14px">📍 주소 검색</span>
-      <button onclick="closeAddrSearch()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;padding:0 4px;">✕</button>
-    </div>
-    <div id="mc-addr-wrap" style="height:450px;overflow:hidden;"></div>
-  </div>
-</div>
-</div>
+<div id="m-addr" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);align-items:center;justify-content:center;" onclick="if(event.target===this)closeAddrSearch();"><div style="background:#fff;border-radius:10px;width:92%;max-width:500px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;"><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1a2b6b;border-radius:10px 10px 0 0;"><span style="color:#fff;font-weight:700;font-size:14px">📍 주소 입력</span><button onclick="closeAddrSearch()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;">✕</button></div><div id="mc-addr-wrap" style="height:400px;"></div></div></div>
 <div class="page" id="pg-qlist"><div class="kr"><div class="kpi"><div class="kl">전체 견적</div><div class="kv y" id="ql-tot">0건</div><div class="ks">발송 누적</div></div><div class="kpi"><div class="kl">수주 건수</div><div class="kv g" id="ql-won">0건</div><div class="ks">계약 성사</div></div><div class="kpi"><div class="kl">견적 총액</div><div class="kv b" id="ql-amt">₩0</div><div class="ks">공급가액</div></div><div class="kpi"><div class="kl">수주율</div><div class="kv pu" id="ql-rate">0%</div><div class="ks">수주/전체</div></div></div><div class="tb2"><div class="tbl"><div class="sw"><span class="si">🔍</span><input type="text" placeholder="상호명, 견적명..." oninput="rdQList()" id="ql-q"></div><select class="fs" onchange="rdQList()" id="ql-stat"><option value="">전체 상태</option><option>발송완료</option><option>협의중</option><option>수주</option><option>미수주</option><option>취소</option></select><select class="fs" onchange="rdQList()" id="ql-sort"><option value="date-desc">날짜 ↓</option><option value="date-asc">날짜 ↑</option><option value="amt-desc">금액 ↓</option><option value="co-asc">상호명 ↑</option><option value="status">상태순</option></select></div><div class="tbr"><button class="vbtn on" id="ql-view-table" onclick="setQlView('table')">☰</button><button class="vbtn" id="ql-view-card" onclick="setQlView('card')">▦</button><button class="tbr-ico" onclick="xlsQl()">📊</button></div></div><div id="ql-card-wrap" style="display:none"></div><div id="ql-table-wrap"><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적번호</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">발송일</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상호명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:right;border-bottom:1px solid var(--bd)">공급가액</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상태</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">메모</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">관리</th></tr></thead><tbody id="ql-body"></tbody></table></div></div></div><script>
 // ══ DATA ══
 const IL=[{"id": 100, "type": "purchase", "date": "2025-12-27", "month": "2025-12", "quarter": "Q4", "client": "글래스 마켓", "project": "", "category": "자재/용품", "item": "유포지  A4 스티커용지", "qty": 1.0, "price": 19300.0, "amount": 19300.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19300.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 201, "type": "purchase", "date": "2026-01-26", "month": "2026-01", "quarter": "Q1", "client": "엡손스토어", "project": "", "category": "자재/용품", "item": "엡손 S041328 사틴 용지 A3+ 20매", "qty": 2.0, "price": 25500.0, "amount": 51000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 54000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 302, "type": "purchase", "date": "2026-02-20", "month": "2026-02", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (티셔츠용) 50장", "qty": 1.0, "price": 3670.0, "amount": 3670.0, "vatRate": 0, "shipping": 2750.0, "vat": 0, "total": 6420.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 403, "type": "purchase", "date": "2026-02-22", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "UV 레진", "qty": 1.0, "price": 5000.0, "amount": 5000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 5000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 504, "type": "purchase", "date": "2026-02-23", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "행택 끈", "qty": 1.0, "price": 2700.0, "amount": 2700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 2700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 605, "type": "purchase", "date": "2026-02-23", "month": "2026-02", "quarter": "Q1", "client": "하나페이퍼몰", "project": "", "category": "자재/용품", "item": "백상지 A4", "qty": 1.0, "price": 6800.0, "amount": 6800.0, "vatRate": 0, "shipping": 2000.0, "vat": 0, "total": 8800.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 706, "type": "purchase", "date": "2026-02-26", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "양평두물머리해장국", "category": "자재/용품", "item": "앞치마", "qty": 6.0, "price": 7000.0, "amount": 42000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 42000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 807, "type": "purchase", "date": "2026-02-27", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "장바구니", "qty": 5.0, "price": 1600.0, "amount": 8000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 8000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 908, "type": "purchase", "date": "2026-02-27", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "PU시트지 (흰/검)", "qty": 1.0, "price": 11000.0, "amount": 11000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 11000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1009, "type": "purchase", "date": "2026-03-01", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "앞치마", "qty": 20.0, "price": 4500.0, "amount": 90000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 90000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1110, "type": "purchase", "date": "2026-03-01", "month": "2026-03", "quarter": "Q1", "client": "미패키지", "project": "", "category": "자재/용품", "item": "무지쇼핑백", "qty": 100.0, "price": 130.0, "amount": 13000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 16000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1211, "type": "purchase", "date": "2026-03-02", "month": "2026-03", "quarter": "Q1", "client": "퍼니맨 스탬프", "project": "", "category": "자재/용품", "item": "속건잉크 스템프", "qty": 1.0, "price": 74900.0, "amount": 74900.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 74900.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1312, "type": "sales", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "양평두물머리해장국", "project": "양평두물머리해장국", "category": "매출-디자인", "item": "포스터, 앞치마, 모자", "qty": 1.0, "price": 300000.0, "amount": 300000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 300000.0, "payment": "현금", "receipt": "없음", "staff": "대표삼촌", "memo": ""}, {"id": 1413, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스냅단추 흰색 100개", "qty": 1.0, "price": 3700.0, "amount": 3700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1514, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스냅단추 검정색 100개", "qty": 1.0, "price": 3700.0, "amount": 3700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1615, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "아일렛 (6mm) 100개", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1716, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (베이지색)", "qty": 2.0, "price": 3000.0, "amount": 6000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1817, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감 (검정색) 50개", "qty": 1.0, "price": 7500.0, "amount": 7500.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 7500.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1918, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감고리 (검정색) 10개", "qty": 4.0, "price": 2800.0, "amount": 11200.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 11200.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2019, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (검정색)", "qty": 2.0, "price": 3000.0, "amount": 6000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2120, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "카드슬롯 나무 10개", "qty": 2.0, "price": 2000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2221, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "카드스탠드 투명 48개", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2322, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (검정색)", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2423, "type": "purchase", "date": "2026-03-07", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (노랑색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2524, "type": "purchase", "date": "2026-03-07", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (형광색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2625, "type": "purchase", "date": "2026-03-08", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (빨강색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2726, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "오피스히트몰", "project": "", "category": "자재/용품", "item": "모조지 180G", "qty": 1.0, "price": 6100.0, "amount": 6100.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6100.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2827, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "오피스히트몰", "project": "", "category": "자재/용품", "item": "모조지 220G", "qty": 1.0, "price": 7000.0, "amount": 7000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 10000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2928, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (브로슈어용)200장", "qty": 1.0, "price": 3580.0, "amount": 3580.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3580.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3029, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (A4용) 100장", "qty": 1.0, "price": 4190.0, "amount": 4190.0, "vatRate": 0, "shipping": 2750.0, "vat": 0, "total": 6940.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3130, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙 카라비너 50개", "qty": 1.0, "price": 16000.0, "amount": 16000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 16000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3231, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "장바구니 50개", "qty": 1.0, "price": 40000.0, "amount": 40000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 40000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3332, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "양면 리벳 세트 100개", "qty": 1.0, "price": 9000.0, "amount": 9000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3433, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "열쇠고리 검정 100개", "qty": 1.0, "price": 15000.0, "amount": 15000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 15000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3534, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "오링고리 검정 25개", "qty": 12.0, "price": 1657.0, "amount": 19884.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19884.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3635, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감고리 (검정색) 10개", "qty": 5.0, "price": 3000.0, "amount": 15000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 15000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3736, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "오링고리 실버 120개", "qty": 1.0, "price": 3000.0, "amount": 3000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3837, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스틸 오프너 20개", "qty": 2.0, "price": 9000.0, "amount": 18000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 18000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3938, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "아크릴 키링 90개", "qty": 1.0, "price": 3200.0, "amount": 3200.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3200.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4039, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "플라스틱 키링 20개", "qty": 3.0, "price": 3200.0, "amount": 9600.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9600.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4140, "type": "purchase", "date": "2026-04-13", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "나무 오프터 10개", "qty": 1.0, "price": 9000.0, "amount": 9000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4241, "type": "purchase", "date": "2026-04-13", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "리유저블컵", "qty": 40.0, "price": 950.0, "amount": 38000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 38000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4342, "type": "purchase", "date": "2026-04-09", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "UV 인쇄", "qty": 1.0, "price": 19000.0, "amount": 19000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4443, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (형광색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4544, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (주황색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4645, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "볼펜", "qty": 48.0, "price": 625.0, "amount": 30000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 30000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4746, "type": "purchase", "date": "2026-03-26", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (핑크색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}];
@@ -1223,7 +1162,37 @@ function qlLoad(id){var r=quoteList.find(function(x){return x.id===id;});if(!r)r
 function xlsQl(){var wb=XLSX.utils.book_new();var ws=XLSX.utils.aoa_to_sheet([['견적번호','발송일','상호명','견적명','공급가액','상태','메모']].concat(quoteList.map(function(r){return[r.qnum,r.date,r.company,r.title,r.supply,r.status,r.memo];})));XLSX.utils.book_append_sheet(wb,ws,'견적관리');XLSX.writeFile(wb,'견적관리.xlsx');}
 function openPrAdd(){var md=document.getElementById('m-pr-add');if(!md)return;['pa-cat','pa-item','pa-desc','pa-unit','pa-note'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var el=document.getElementById('pa-price');if(el)el.value='';md.style.display='';}
 function savePrAdd(){var src=(document.getElementById('pa-src')||{value:'uncle'}).value;var cat=(document.getElementById('pa-cat')||{value:''}).value.trim();var item=(document.getElementById('pa-item')||{value:''}).value.trim();var price=parseInt(((document.getElementById('pa-price')||{value:'0'}).value+'').replace(/[^0-9]/g,''))||0;var desc=(document.getElementById('pa-desc')||{value:''}).value.trim();var unit=(document.getElementById('pa-unit')||{value:''}).value.trim();var note=(document.getElementById('pa-note')||{value:''}).value.trim();if(!cat||!item){toast('카테고리와 품목명은 필수입니다','terr');return;}var all=src==='uncle'?PU:PM;all.push({cat:cat,item:item,desc:desc||item,price:price,unit:unit,note:note,key:cat+'|'+item});localStorage.setItem(src==='uncle'?'du4_pu_e':'du4_pm_e',JSON.stringify(all));cm('m-pr-add');rdPr();toast('✅ 품목 추가: '+item);}
-function openAddrSearch(){}
+function openAddrSearch(){
+  var modal=document.getElementById('m-addr');
+  var wrap=document.getElementById('mc-addr-wrap');
+  if(!modal||!wrap)return;
+  wrap.innerHTML='';
+  modal.style.display='flex';
+  function run(){
+    new daum.Postcode({
+      oncomplete:function(d){
+        var zipEl=document.getElementById('mc-zip');
+        var adEl=document.getElementById('mc-ad');
+        var ad2El=document.getElementById('mc-ad2');
+        if(zipEl)zipEl.value=d.zonecode||'';
+        if(adEl)adEl.value=d.roadAddress||d.jibunAddress||'';
+        if(ad2El){ad2El.value='';setTimeout(function(){ad2El.focus();},100);}
+        closeAddrSearch();
+        toast('✅ 주소 선택 완료');
+      },
+      width:'100%',
+      height:'100%'
+    }).embed(wrap,{autoClose:false});
+  }
+  if(window.daum&&window.daum.Postcode){
+    run();
+  } else {
+    var s=document.createElement('script');
+    s.src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+    s.onload=function(){setTimeout(run,200);};
+    document.head.appendChild(s);
+  }
+}
 function closeAddrSearch(){
   var layer=document.getElementById('daum-addr-layer');
   var bg=document.getElementById('daum-addr-bg');
@@ -2177,6 +2146,49 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelect
 
 
 
+
+function exportAllData(){
+  var keys=['du4_l','du4_c2','du4_p','du4_as','du4_vd','du4_ql','du4_pu_e','du4_pm_e'];
+  var data={_version:1,_date:new Date().toISOString(),_app:'TheDesignUncle'};
+  keys.forEach(function(k){
+    var v=localStorage.getItem(k);
+    if(v)try{data[k]=JSON.parse(v);}catch(e){data[k]=v;}
+  });
+  var json=JSON.stringify(data,null,2);
+  var blob=new Blob([json],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url;
+  a.download='TheDesignUncle_backup_'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('✅ 데이터 내보내기 완료! ('+Object.keys(data).length+'개 항목)');
+}
+function importAllData(e){
+  var file=e.target.files[0];
+  if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    try{
+      var data=JSON.parse(ev.target.result);
+      if(data._app!=='TheDesignUncle'){toast('올바른 백업 파일이 아닙니다','terr');return;}
+      var keys=['du4_l','du4_c2','du4_p','du4_as','du4_vd','du4_ql','du4_pu_e','du4_pm_e'];
+      var count=0;
+      keys.forEach(function(k){
+        if(data[k]!==undefined){
+          localStorage.setItem(k,JSON.stringify(data[k]));
+          count++;
+        }
+      });
+      toast('✅ 데이터 가져오기 완료! ('+count+'개 항목) 새로고침합니다...');
+      setTimeout(function(){location.reload();},1500);
+    }catch(err){
+      toast('파일 읽기 오류: '+err.message,'terr');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
 // ══ INIT ══
 document.getElementById('lf-d').value=td();
 rdDash();rdLedger();rdDashFlow();
