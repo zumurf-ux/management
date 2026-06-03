@@ -18,10 +18,10 @@ nav{height:54px;background:var(--s1);border-bottom:1px solid var(--bd);display:f
 .nt-wrap{display:flex;gap:2px;overflow-x:auto;flex:1}
 .nt{display:flex;align-items:center;gap:5px;padding:6px 12px;border:none;background:transparent;color:var(--mu);border-radius:7px;cursor:pointer;font-family:inherit;font-size:12px;font-weight:500;white-space:nowrap;transition:all .18s}
 .nt:hover{color:var(--tx);background:var(--s2)}.nt.on{color:var(--tx);background:var(--s3);border:1px solid var(--b2)}
-.pages{flex:1;overflow:hidden;position:relative}
-.page{display:none;position:absolute;inset:0;overflow:auto;flex-direction:column}.page.on{display:flex}
+.pages{flex:1;overflow:hidden;position:relative;min-height:0}
+.page{display:none;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;flex-direction:column}.page.on{display:flex;flex-direction:column}
 /* KPI */
-.kr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 18px}
+.kr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 18px;flex-shrink:0}
 .kpi{background:var(--s1);border:1px solid var(--bd);border-radius:11px;padding:14px}
 .kl{font-size:10px;color:var(--mu);font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
 .kv{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600}
@@ -561,7 +561,7 @@ select.fs{height:32px;box-sizing:border-box;}
     <div class="kpi"><div class="kl">무상 처리</div><div class="kv g" id="as-free">0건</div><div class="ks">보증기간 내</div></div>
     <div class="kpi"><div class="kl">유상 비용 합계</div><div class="kv o" id="as-cost">₩0</div><div class="ks">유상 처리 총액</div></div>
   </div>
-  <div id="as-stats-row" style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:0 18px 10px;flex-shrink:0"></div>
+  <div id="as-stats-row" style="display:none"></div>
   <div class="tb2" style="flex-shrink:0">
     <div class="tbl">
       <div class="sw"><span class="si">🔍</span><input type="text" placeholder="상호명, 요청내용..." oninput="fltAS()" id="as-q"></div>
@@ -582,7 +582,10 @@ select.fs{height:32px;box-sizing:border-box;}
     <div class="empty" id="as-empty"><div class="ei">🔧</div><div>A/S 내역이 없습니다</div></div>
   </div>
   <div class="pager"><span id="as-pi">0건</span><div class="pbs" id="as-pb"></div></div>
+
+
 </div>
+<div class="page" id="pg-qlist"><div class="kr"><div class="kpi"><div class="kl">전체 견적</div><div class="kv y" id="ql-tot">0건</div><div class="ks">발송 누적</div></div><div class="kpi"><div class="kl">수주 건수</div><div class="kv g" id="ql-won">0건</div><div class="ks">계약 성사</div></div><div class="kpi"><div class="kl">견적 총액</div><div class="kv b" id="ql-amt">₩0</div><div class="ks">공급가액</div></div><div class="kpi"><div class="kl">수주율</div><div class="kv pu" id="ql-rate">0%</div><div class="ks">수주 / 전체</div></div></div><div class="tb2"><div class="tbl"><div class="sw"><span class="si">🔍</span><input type="text" placeholder="상호명, 견적명..." oninput="rdQList()" id="ql-q"></div><select class="fs" onchange="rdQList()" id="ql-stat"><option value="">전체 상태</option><option>발송완료</option><option>협의중</option><option>수주</option><option>미수주</option><option>취소</option></select></div><div class="tbr"><select class="fs" onchange="rdQList()" id="ql-sort"><option value="date-desc">날짜 ↓</option><option value="date-asc">날짜 ↑</option><option value="amt-desc">금액 ↓</option><option value="co-asc">상호명 ↑</option><option value="status">상태순</option></select><button class="vbtn on" id="ql-view-table" onclick="setQlView('table')">☰</button><button class="vbtn" id="ql-view-card" onclick="setQlView('card')">▦</button><button class="tbr-ico" onclick="xlsQl()">📊</button></div></div><div id="ql-card-wrap" style="display:none"></div><div id="ql-table-wrap"><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적번호</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">발송일</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상호명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:right;border-bottom:1px solid var(--bd)">공급가액</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상태</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">메모</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">관리</th></tr></thead><tbody id="ql-body"></tbody></table></div></div></div>
 
 </div></div>
 
@@ -810,8 +813,7 @@ select.fs{height:32px;box-sizing:border-box;}
 </div></div>
 
 
-<div id="m-addr" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);align-items:center;justify-content:center;" onclick="if(event.target===this)closeAddrSearch();"><div style="background:#fff;border-radius:10px;width:92%;max-width:500px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;"><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1a2b6b;border-radius:10px 10px 0 0;"><span style="color:#fff;font-weight:700;font-size:14px">📍 주소 검색</span><button onclick="closeAddrSearch()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;">✕</button></div><div id="mc-addr-wrap" style="height:400px;"></div></div></div>
-<div class="page" id="pg-qlist"><div class="kr"><div class="kpi"><div class="kl">전체 견적</div><div class="kv y" id="ql-tot">0건</div><div class="ks">발송 누적</div></div><div class="kpi"><div class="kl">수주 건수</div><div class="kv g" id="ql-won">0건</div><div class="ks">계약 성사</div></div><div class="kpi"><div class="kl">견적 총액</div><div class="kv b" id="ql-amt">₩0</div><div class="ks">공급가액</div></div><div class="kpi"><div class="kl">수주율</div><div class="kv pu" id="ql-rate">0%</div><div class="ks">수주 / 전체</div></div></div><div class="tb2"><div class="tbl"><div class="sw"><span class="si">🔍</span><input type="text" placeholder="상호명, 견적명..." oninput="rdQList()" id="ql-q"></div><select class="fs" onchange="rdQList()" id="ql-stat"><option value="">전체 상태</option><option>발송완료</option><option>협의중</option><option>수주</option><option>미수주</option><option>취소</option></select><select class="fs" onchange="rdQList()" id="ql-sort"><option value="date-desc">날짜 ↓</option><option value="date-asc">날짜 ↑</option><option value="amt-desc">금액 ↓</option><option value="co-asc">상호명 ↑</option><option value="status">상태순</option></select></div><div class="tbr"><button class="vbtn on" id="ql-view-table" onclick="setQlView('table')">☰</button><button class="vbtn" id="ql-view-card" onclick="setQlView('card')">▦</button><button class="tbr-ico" onclick="xlsQl()">📊</button></div></div><div id="ql-card-wrap" style="display:none"></div><div id="ql-table-wrap"><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적번호</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">발송일</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상호명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:right;border-bottom:1px solid var(--bd)">공급가액</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상태</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">메모</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">관리</th></tr></thead><tbody id="ql-body"></tbody></table></div></div></div><script>
+<div id="m-addr" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);align-items:center;justify-content:center;" onclick="if(event.target===this)closeAddrSearch();"><div style="background:#fff;border-radius:10px;width:92%;max-width:500px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;"><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1a2b6b;border-radius:10px 10px 0 0;"><span style="color:#fff;font-weight:700;font-size:14px">📍 주소 검색</span><button onclick="closeAddrSearch()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;">✕</button></div><div id="mc-addr-wrap" style="height:400px;"></div></div></div><script>
 // ══ DATA ══
 // ══ FIREBASE ══
 const _fbCfg={apiKey:"AIzaSyDzmm0dvAKYnWXiODY1-zmUijgJtkaY9Gc",authDomain:"thedesignuncle-management.firebaseapp.com",projectId:"thedesignuncle-management",storageBucket:"thedesignuncle-management.firebasestorage.app",messagingSenderId:"826213961531",appId:"1:826213961531:web:f58cfac1eb09dbee65f11e"};
@@ -1351,7 +1353,7 @@ function cu2project(cid){
   if(s.timing==='1개월 이내'){const d=new Date(today);d.setMonth(d.getMonth()+1);due=d.toISOString().slice(0,10);}
   else if(s.timing==='1~3개월'){const d=new Date(today);d.setMonth(d.getMonth()+3);due=d.toISOString().slice(0,10);}
   else if(s.timing==='3개월 이상'){const d=new Date(today);d.setMonth(d.getMonth()+4);due=d.toISOString().slice(0,10);}
-  // Q14 제작/설치 포함 여부
+  // Q14 제작 / 설치 포함 여부
   const prod=s.production||'';
   // Q19 설치, Q20 AS
   const memoLines=[];
@@ -1516,7 +1518,7 @@ function importSurveyRows(){
   _uploadRows.forEach((rec,i)=>{
     const chk=document.getElementById('up-chk-'+i);
     if(!chk||!chk.checked)return;
-    // 연락처/이메일 분리
+    // 연락처 / 이메일 분리
     let tel='',email='';
     const ct=rec.contact||'';
     if(ct.includes('@'))email=ct;else tel=ct;
@@ -1766,7 +1768,7 @@ function rdAS(){
   document.getElementById('as-cost').textContent=fmt(asItems.filter(a=>a.feeType==='유상').reduce((s,a)=>s+sf(a.cost),0));
   // 유형별 분석 카드
   const tyS={};asItems.forEach(a=>{const t=a.asType||'기타';if(!tyS[t])tyS[t]={tot:0,free:0,paid:0,cost:0};tyS[t].tot++;if(a.feeType==='무상')tyS[t].free++;else{tyS[t].paid++;tyS[t].cost+=sf(a.cost);}});
-  document.getElementById('as-stats-row').innerHTML=Object.entries(tyS).map(([t,v])=>`<div class="kpi"><div class="kl">${esc(t)}</div><div class="kv y">${v.tot}건</div><div class="ks"><span style="color:var(--g)">무상 ${v.free}</span> · <span style="color:var(--r)">유상 ${v.paid}</span>${v.cost?'<br>'+fmt(v.cost):''}</div></div>`).join('');
+  // as-stats-row hidden
   document.getElementById('dl-ascu').innerHTML=custs.map(c=>`<option value="${esc(c.company)}">`).join('');
   const flt=getAS(),tp=Math.max(1,Math.ceil(flt.length/PER));if(asPage>tp)asPage=tp;
   const paged=flt.slice((asPage-1)*PER,asPage*PER);
@@ -1793,14 +1795,14 @@ function saveAS(){
 }
 function delAS(){if(!confirm('이 A/S를 삭제하시겠습니까?'))return;asItems=asItems.filter(x=>x.id!==editASId);sa();cm('m-as');rdAS();toast('🗑 삭제됨');}
 function delAS2(id){if(!confirm('삭제하시겠습니까?'))return;asItems=asItems.filter(x=>x.id!==id);sa();rdAS();toast('🗑 삭제됨');}
-function xlsAS(){const wb=XLSX.utils.book_new();const h=['ASID','접수일','상호명','연락처','AS유형','세부유형','원인','유상/무상','우선순위','요청내용','담당자','상태','처리일','소요일','비용','무상시작','무상종료','메모'];const ws=XLSX.utils.aoa_to_sheet([h,...asItems.map(a=>[a.asid,a.receiveDate,a.company,a.tel,a.asType,a.asDetail,a.cause,a.feeType,a.priority,a.request,a.staff,a.status,a.doneDate,a.days,a.cost,a.warrantyStart,a.warrantyEnd,a.memo])]);ws['!cols']=[14,10,14,12,8,14,10,8,8,24,8,8,10,6,10,10,10,16].map(w=>({wch:w}));XLSX.utils.book_append_sheet(wb,ws,'AS관리');XLSX.writeFile(wb,'AS관리_'+new Date().toISOString().slice(0,10)+'.xlsx');toast('📊 A/S 엑셀!');}
+function xlsAS(){const wb=XLSX.utils.book_new();const h=['ASID','접수일','상호명','연락처','AS유형','세부유형','원인','유상 / 무상','우선순위','요청내용','담당자','상태','처리일','소요일','비용','무상시작','무상종료','메모'];const ws=XLSX.utils.aoa_to_sheet([h,...asItems.map(a=>[a.asid,a.receiveDate,a.company,a.tel,a.asType,a.asDetail,a.cause,a.feeType,a.priority,a.request,a.staff,a.status,a.doneDate,a.days,a.cost,a.warrantyStart,a.warrantyEnd,a.memo])]);ws['!cols']=[14,10,14,12,8,14,10,8,8,24,8,8,10,6,10,10,10,16].map(w=>({wch:w}));XLSX.utils.book_append_sheet(wb,ws,'AS관리');XLSX.writeFile(wb,'AS관리_'+new Date().toISOString().slice(0,10)+'.xlsx');toast('📊 A/S 엑셀!');}
 // ══ VENDOR (업체관리) ══
 const INIT_VENDORS = (()=>{
   // 매입매출 장부의 거래처 데이터로 초기화
   const raw = IC; // IC = clients_raw from ledger
   return raw.map((c,i)=>({
     id:i+1,name:c.name,btype:c.btype||'매입처',
-    category:c.btype==='매출처'?'기타':'자재/용품',
+    category:c.btype==='매출처'?'기타':'자재 / 용품',
     staff:c.staff||'대표삼촌',tel:c.tel||'',email:c.email||'',
     url:c.memo||'',item:'',memo:c.memo||''
   }));
@@ -1849,7 +1851,7 @@ function openVdMd(id){
   document.getElementById('mv-t').textContent=v?'🏪 업체 정보 수정':'🏪 업체 추가';
   document.getElementById('mv-nm').value=v?.name||'';
   document.getElementById('mv-type').value=v?.btype||'매입처';
-  document.getElementById('mv-cat').value=v?.category||'자재/용품';
+  document.getElementById('mv-cat').value=v?.category||'자재 / 용품';
   document.getElementById('mv-st').value=v?.staff||'대표삼촌';
   document.getElementById('mv-tel').value=v?.tel||'';
   document.getElementById('mv-em').value=v?.email||'';
@@ -1871,7 +1873,7 @@ function delVd(){if(!confirm('이 업체를 삭제하시겠습니까?'))return;v
 function delVdCard(id){const v=vendors.find(x=>x.id===id);if(!v)return;if(!confirm(`'${v.name}' 업체를 삭제하시겠습니까?`))return;vendors=vendors.filter(x=>x.id!==id);sv_vd();rdVd();toast('🗑 업체 삭제됨');}
 function xlsVd(){
   const wb=XLSX.utils.book_new();
-  const h=['업체명','구분','분류','담당자','연락처','이메일/메신저','구매채널/URL','주요품목','메모'];
+  const h=['업체명','구분','분류','담당자','연락처','이메일 / 메신저','구매채널 / URL','주요품목','메모'];
   const ws=XLSX.utils.aoa_to_sheet([h,...vendors.map(v=>[v.name,v.btype,v.category,v.staff,v.tel,v.email,v.url,v.item,v.memo])]);
   ws['!cols']=[16,8,10,8,12,16,20,16,16].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,ws,'업체관리');
@@ -2038,13 +2040,13 @@ function loadPjToQuote(pjId){
 
 // ══ 프로젝트 세부항목 드롭다운 (엑셀 기반) ══
 const PJ_ITEMS={
-  '브랜드 디자인':['로고','CI','BI','심볼','캐릭터','패키지 디자인','폰트/타입페이스','기타'],
-  '광고/컨셉':['광고 키비주얼','영상/썸네일','제품사진','컨셉 기획','카탈로그','기타'],
-  '온라인 디자인':['상세페이지','SNS 콘텐츠','유튜브 썸네일','배너 광고','앱/웹 UI','이메일 뉴스레터','기타'],
-  '오프라인 디자인':['간판','현수막','배너/입간판','포스터','홍보물','사인/안내판','기타'],
-  '인쇄물 디자인':['메뉴판','전단지','포스터','명함','스티커','쿠폰/티켓','패키지','봉투/서식','기타'],
-  '인테리어 디자인':['공간 디자인','부분 수리','환경개선','동선/사인','조명 기획','기타'],
-  '기타':['컨설팅','교육/강의','기타 디자인','기타']
+  '브랜드 디자인':['로고','CI','BI','심볼','캐릭터','패키지 디자인','폰트 / 타입페이스','기타'],
+  '광고 / 컨셉':['광고 키비주얼','영상 / 썸네일','제품사진','컨셉 기획','카탈로그','기타'],
+  '온라인 디자인':['상세페이지','SNS 콘텐츠','유튜브 썸네일','배너 광고','앱 / 웹 UI','이메일 뉴스레터','기타'],
+  '오프라인 디자인':['간판','현수막','배너 / 입간판','포스터','홍보물','사인 / 안내판','기타'],
+  '인쇄물 디자인':['메뉴판','전단지','포스터','명함','스티커','쿠폰 / 티켓','패키지','봉투 / 서식','기타'],
+  '인테리어 디자인':['공간 디자인','부분 수리','환경개선','동선 / 사인','조명 기획','기타'],
+  '기타':['컨설팅','교육 / 강의','기타 디자인','기타']
 };
 function rdPjItems(){
   const cat=document.getElementById('mp-cat').value;
