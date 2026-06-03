@@ -108,7 +108,7 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .bpr{display:flex;gap:2px;align-items:flex-end;width:100%;height:96px}
 .bar{border-radius:3px 3px 0 0;min-height:2px;flex:1}
 /* QUOTE ITEMS */
-.qi{display:grid;grid-template-columns:1fr 62px 92px 70px 82px 26px;gap:6px;align-items:center;padding:8px 10px;background:var(--s2);border-radius:8px;border:1px solid var(--bd);margin-bottom:5px}
+.qi{display:grid;grid-template-columns:1fr 1fr 60px 100px 80px 90px 24px;gap:6px;align-items:center;padding:8px 10px;background:var(--s2);border-radius:8px;border:1px solid var(--bd);margin-bottom:5px}
 .qii{background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:4px 7px;font-size:12px;font-family:'IBM Plex Mono',monospace;text-align:right;width:100%}
 .qii:focus{outline:none;border-color:var(--g)}
 /* PRICE CARDS */
@@ -256,47 +256,19 @@ tbody td{padding:8px 10px;vertical-align:middle}
 
 .vbtn{background:var(--s2);color:var(--mu);border:1px solid var(--bd);border-radius:6px;padding:0 10px;height:32px;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:32px;}
 .vbtn:hover{background:var(--s3);}.vbtn.on{background:var(--g);color:#0d0f18;border-color:var(--g);font-weight:700;}
-.tbr-add{background:var(--g);color:#0d0f18;border:none;border-radius:6px;padding:0 12px;height:32px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;box-sizing:border-box;}
-.tbr-add:hover{opacity:.88;}
-.tbr-ico{background:var(--s2);color:var(--mu);border:1px solid var(--bd);border-radius:6px;padding:0 10px;height:32px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;}
-.tbr-ico:hover{background:var(--s3);}
-.pr-add-btn{flex:1;background:var(--s2);color:var(--tx);border:1px solid var(--bd);border-radius:5px;padding:5px 0;font-size:10px;font-weight:600;cursor:pointer;}
-.pr-add-btn:hover,.pr-edit-btn:hover{background:var(--s3);}
+.tbr-add{background:var(--g);color:#0d0f18;border:none;border-radius:6px;padding:0 12px;height:32px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;box-sizing:border-box;}.tbr-add:hover{opacity:.88;}
+.tbr-ico{background:var(--s2);color:var(--mu);border:1px solid var(--bd);border-radius:6px;padding:0 10px;height:32px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;}.tbr-ico:hover{background:var(--s3);}
+.pr-add-btn{flex:1;background:var(--s2);color:var(--tx);border:1px solid var(--bd);border-radius:5px;padding:5px 0;font-size:10px;font-weight:600;cursor:pointer;}.pr-add-btn:hover,.pr-edit-btn:hover{background:var(--s3);}
 .pr-edit-btn{background:var(--s2);color:var(--mu);border:1px solid var(--bd);border-radius:5px;padding:5px 8px;font-size:10px;cursor:pointer;white-space:nowrap;}
 select.fs{height:32px;box-sizing:border-box;}
 .nt-wrap{display:flex;align-items:center;}
-/* 모바일 전용 */
-@media screen and (max-width:768px){
-  nav{height:auto!important;flex-direction:column!important;align-items:stretch!important;padding:0!important;position:sticky;top:0;z-index:200;}
-  .brand{padding:8px 12px!important;}
-  .brand-logo{height:22px!important;}
-  .nt-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;padding:4px 8px 8px!important;gap:4px!important;scrollbar-width:none!important;border-top:1px solid var(--bd);flex-wrap:nowrap!important;}
-  .nt-wrap::-webkit-scrollbar{display:none!important;}
-  .nt{white-space:nowrap!important;flex-shrink:0!important;padding:6px 12px!important;font-size:12px!important;height:auto!important;}
-  .kr{grid-template-columns:repeat(2,1fr)!important;gap:8px!important;padding:10px!important;}
-  .kpi{padding:10px 12px!important;}
-  .kv{font-size:16px!important;}
-  .dr2{grid-template-columns:1fr!important;gap:8px!important;padding:0 10px 10px!important;}
-  .cg3{grid-template-columns:repeat(2,1fr)!important;padding:10px!important;}
-  .r2{grid-template-columns:1fr!important;}
-  .r3{grid-template-columns:1fr!important;}
-  .tb2{flex-wrap:wrap!important;gap:6px!important;padding:8px 10px!important;}
-  .tbl{flex-wrap:wrap!important;gap:4px!important;}
-  .tbr{flex-wrap:wrap!important;gap:4px!important;}
-  .tw{overflow-x:auto!important;}
-  .tw table{min-width:520px!important;}
-  .ov{align-items:flex-end!important;}
-  .modal{width:100%!important;max-width:100%!important;border-radius:16px 16px 0 0!important;max-height:92vh!important;overflow-y:auto!important;}
-  .fg input,.fg select,.fg textarea{font-size:16px!important;}
-  .ma2 .btn{flex:1!important;}
-}
-@media screen and (max-width:480px){
-  .kr{grid-template-columns:1fr 1fr!important;}
-  .cg3{grid-template-columns:1fr!important;}
-}
+.qii{background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:4px 7px;font-size:13px;font-family:'Noto Sans KR',sans-serif;text-align:right;width:100%;}
+.qii::-webkit-inner-spin-button,.qii::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 <div class="app">
@@ -338,7 +310,6 @@ select.fs{height:32px;box-sizing:border-box;}
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">🎨 디자인 의뢰 현황</div><div id="d-design" style="display:flex;flex-direction:column;gap:6px"></div></div><div class="dc"><div class="ct">🏪 업종 분포도</div><div style="display:flex;gap:10px;align-items:flex-start"><div style="position:relative;flex-shrink:0"><canvas id="d-ind-donut" width="120" height="120"></canvas><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none"><div style="font-size:18px;font-weight:700;color:var(--tx)" id="d-ind-total">0</div><div style="font-size:9px;color:var(--mu)">고객</div></div></div><div id="d-ind-legend" style="flex:1;display:flex;flex-direction:column;gap:4px;padding-top:4px"></div></div></div></div>
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">📍 고객 지역 분포</div><div id="d-region-map"></div></div><div class="dc"><div class="ct">📦 분류별 매입</div><div id="d-cat"></div></div></div>
   <div class="dr2" style="padding-top:0"><div class="dc"><div class="ct">🏪 거래처 매입 Top 8</div><table id="d-tp" style="width:100%;border-collapse:collapse;font-size:11px"></table></div><div class="dc"><div class="ct">🕐 최근 거래 10건</div><table id="d-rc" style="width:100%;border-collapse:collapse;font-size:11px"></table></div></div>
-  <div style="padding:0 18px 18px;"><div style="background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;"><div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">💾 데이터 백업 / 복원</div><div style="font-size:11px;color:var(--mu);">PC↔GitHub 환경 변경 시 사용</div></div><div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn bg bsm" onclick="exportAllData()">📤 내보내기</button><button class="btn bs2 bsm" onclick="document.getElementById('import-file').click()">📥 가져오기</button><input type="file" id="import-file" accept=".json" style="display:none" onchange="importAllData(event)"></div></div></div>
 </div>
 
 <div class="page" id="pg-ledger">
@@ -465,12 +436,13 @@ select.fs{height:32px;box-sizing:border-box;}
             <button class="btn bgh bsm" onclick="addQI()">+ 직접 입력</button>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 62px 92px 70px 82px 26px;gap:6px;padding:3px 10px;margin-bottom:3px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 60px 100px 80px 90px 24px;gap:6px;padding:3px 10px;margin-bottom:3px">
           <div style="font-size:9px;color:var(--dm);font-weight:700">품목명</div>
+          <div style="font-size:9px;color:var(--dm);font-weight:700">작업내용</div>
           <div style="font-size:9px;color:var(--dm);font-weight:700;text-align:right">수량</div>
           <div style="font-size:9px;color:var(--dm);font-weight:700;text-align:right">단가</div>
           <div style="font-size:9px;color:var(--dm);font-weight:700;text-align:right">별도비용</div>
-          <div style="font-size:9px;color:var(--dm);font-weight:700;text-align:right">소계</div>
+          <div style="font-size:9px;color:var(--dm);font-weight:700;text-align:right">공급가액</div>
           <div></div>
         </div>
         <div id="q-items"></div>
@@ -827,6 +799,13 @@ select.fs{height:32px;box-sizing:border-box;}
 <div id="m-addr" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);align-items:center;justify-content:center;" onclick="if(event.target===this)closeAddrSearch();"><div style="background:#fff;border-radius:10px;width:92%;max-width:500px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;"><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#1a2b6b;border-radius:10px 10px 0 0;"><span style="color:#fff;font-weight:700;font-size:14px">📍 주소 검색</span><button onclick="closeAddrSearch()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;">✕</button></div><div id="mc-addr-wrap" style="height:400px;"></div></div></div>
 <div class="page" id="pg-qlist"><div class="kr"><div class="kpi"><div class="kl">전체 견적</div><div class="kv y" id="ql-tot">0건</div><div class="ks">발송 누적</div></div><div class="kpi"><div class="kl">수주 건수</div><div class="kv g" id="ql-won">0건</div><div class="ks">계약 성사</div></div><div class="kpi"><div class="kl">견적 총액</div><div class="kv b" id="ql-amt">₩0</div><div class="ks">공급가액</div></div><div class="kpi"><div class="kl">수주율</div><div class="kv pu" id="ql-rate">0%</div><div class="ks">수주/전체</div></div></div><div class="tb2"><div class="tbl"><div class="sw"><span class="si">🔍</span><input type="text" placeholder="상호명, 견적명..." oninput="rdQList()" id="ql-q"></div><select class="fs" onchange="rdQList()" id="ql-stat"><option value="">전체 상태</option><option>발송완료</option><option>협의중</option><option>수주</option><option>미수주</option><option>취소</option></select><select class="fs" onchange="rdQList()" id="ql-sort"><option value="date-desc">날짜 ↓</option><option value="date-asc">날짜 ↑</option><option value="amt-desc">금액 ↓</option><option value="co-asc">상호명 ↑</option><option value="status">상태순</option></select></div><div class="tbr"><button class="vbtn on" id="ql-view-table" onclick="setQlView('table')">☰</button><button class="vbtn" id="ql-view-card" onclick="setQlView('card')">▦</button><button class="tbr-ico" onclick="xlsQl()">📊</button></div></div><div id="ql-card-wrap" style="display:none"></div><div id="ql-table-wrap"><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적번호</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">발송일</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상호명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">견적명</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:right;border-bottom:1px solid var(--bd)">공급가액</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">상태</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">메모</th><th style="background:var(--s2);color:var(--mu);font-size:9px;padding:8px;text-align:left;border-bottom:1px solid var(--bd)">관리</th></tr></thead><tbody id="ql-body"></tbody></table></div></div></div><script>
 // ══ DATA ══
+// ══ FIREBASE ══
+const _fbCfg={apiKey:"AIzaSyDzmm0dvAKYnWXiODY1-zmUijgJtkaY9Gc",authDomain:"thedesignuncle-management.firebaseapp.com",projectId:"thedesignuncle-management",storageBucket:"thedesignuncle-management.firebasestorage.app",messagingSenderId:"826213961531",appId:"1:826213961531:web:f58cfac1eb09dbee65f11e"};
+let _db=null;
+try{if(!firebase.apps.length)firebase.initializeApp(_fbCfg);_db=firebase.firestore();console.log('Firebase OK');}catch(e){console.warn('Firebase 오프라인:',e.message);}
+function fbSave(key,val){if(!_db)return;_db.collection('mgmt').doc(key).set({data:val,updated:Date.now()}).catch(function(e){console.warn('저장실패:',key,e.message);});}
+function fbLoad(key,fallback,cb){if(!_db){cb(fallback);return;}_db.collection('mgmt').doc(key).get().then(function(d){cb(d.exists&&d.data().data!==undefined?d.data().data:fallback);}).catch(function(e){console.warn('로드실패:',key,e.message);cb(fallback);});}
+
 const IL=[{"id": 100, "type": "purchase", "date": "2025-12-27", "month": "2025-12", "quarter": "Q4", "client": "글래스 마켓", "project": "", "category": "자재/용품", "item": "유포지  A4 스티커용지", "qty": 1.0, "price": 19300.0, "amount": 19300.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19300.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 201, "type": "purchase", "date": "2026-01-26", "month": "2026-01", "quarter": "Q1", "client": "엡손스토어", "project": "", "category": "자재/용품", "item": "엡손 S041328 사틴 용지 A3+ 20매", "qty": 2.0, "price": 25500.0, "amount": 51000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 54000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 302, "type": "purchase", "date": "2026-02-20", "month": "2026-02", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (티셔츠용) 50장", "qty": 1.0, "price": 3670.0, "amount": 3670.0, "vatRate": 0, "shipping": 2750.0, "vat": 0, "total": 6420.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 403, "type": "purchase", "date": "2026-02-22", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "UV 레진", "qty": 1.0, "price": 5000.0, "amount": 5000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 5000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 504, "type": "purchase", "date": "2026-02-23", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "행택 끈", "qty": 1.0, "price": 2700.0, "amount": 2700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 2700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 605, "type": "purchase", "date": "2026-02-23", "month": "2026-02", "quarter": "Q1", "client": "하나페이퍼몰", "project": "", "category": "자재/용품", "item": "백상지 A4", "qty": 1.0, "price": 6800.0, "amount": 6800.0, "vatRate": 0, "shipping": 2000.0, "vat": 0, "total": 8800.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 706, "type": "purchase", "date": "2026-02-26", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "양평두물머리해장국", "category": "자재/용품", "item": "앞치마", "qty": 6.0, "price": 7000.0, "amount": 42000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 42000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 807, "type": "purchase", "date": "2026-02-27", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "장바구니", "qty": 5.0, "price": 1600.0, "amount": 8000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 8000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 908, "type": "purchase", "date": "2026-02-27", "month": "2026-02", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "PU시트지 (흰/검)", "qty": 1.0, "price": 11000.0, "amount": 11000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 11000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1009, "type": "purchase", "date": "2026-03-01", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "앞치마", "qty": 20.0, "price": 4500.0, "amount": 90000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 90000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1110, "type": "purchase", "date": "2026-03-01", "month": "2026-03", "quarter": "Q1", "client": "미패키지", "project": "", "category": "자재/용품", "item": "무지쇼핑백", "qty": 100.0, "price": 130.0, "amount": 13000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 16000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1211, "type": "purchase", "date": "2026-03-02", "month": "2026-03", "quarter": "Q1", "client": "퍼니맨 스탬프", "project": "", "category": "자재/용품", "item": "속건잉크 스템프", "qty": 1.0, "price": 74900.0, "amount": 74900.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 74900.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1312, "type": "sales", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "양평두물머리해장국", "project": "양평두물머리해장국", "category": "매출-디자인", "item": "포스터, 앞치마, 모자", "qty": 1.0, "price": 300000.0, "amount": 300000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 300000.0, "payment": "현금", "receipt": "없음", "staff": "대표삼촌", "memo": ""}, {"id": 1413, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스냅단추 흰색 100개", "qty": 1.0, "price": 3700.0, "amount": 3700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1514, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스냅단추 검정색 100개", "qty": 1.0, "price": 3700.0, "amount": 3700.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3700.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1615, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "아일렛 (6mm) 100개", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1716, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (베이지색)", "qty": 2.0, "price": 3000.0, "amount": 6000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1817, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감 (검정색) 50개", "qty": 1.0, "price": 7500.0, "amount": 7500.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 7500.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 1918, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감고리 (검정색) 10개", "qty": 4.0, "price": 2800.0, "amount": 11200.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 11200.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2019, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (검정색)", "qty": 2.0, "price": 3000.0, "amount": 6000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2120, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "카드슬롯 나무 10개", "qty": 2.0, "price": 2000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2221, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "카드스탠드 투명 48개", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2322, "type": "purchase", "date": "2026-03-06", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (검정색)", "qty": 1.0, "price": 4000.0, "amount": 4000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2423, "type": "purchase", "date": "2026-03-07", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (노랑색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2524, "type": "purchase", "date": "2026-03-07", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (형광색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2625, "type": "purchase", "date": "2026-03-08", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (빨강색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2726, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "오피스히트몰", "project": "", "category": "자재/용품", "item": "모조지 180G", "qty": 1.0, "price": 6100.0, "amount": 6100.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 6100.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2827, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "오피스히트몰", "project": "", "category": "자재/용품", "item": "모조지 220G", "qty": 1.0, "price": 7000.0, "amount": 7000.0, "vatRate": 0, "shipping": 3000.0, "vat": 0, "total": 10000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 2928, "type": "purchase", "date": "2026-03-15", "month": "2026-03", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (브로슈어용)200장", "qty": 1.0, "price": 3580.0, "amount": 3580.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3580.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3029, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "에이피알팩", "project": "", "category": "자재/용품", "item": "OPP봉투 (A4용) 100장", "qty": 1.0, "price": 4190.0, "amount": 4190.0, "vatRate": 0, "shipping": 2750.0, "vat": 0, "total": 6940.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3130, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙 카라비너 50개", "qty": 1.0, "price": 16000.0, "amount": 16000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 16000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3231, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "장바구니 50개", "qty": 1.0, "price": 40000.0, "amount": 40000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 40000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3332, "type": "purchase", "date": "2026-03-16", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "양면 리벳 세트 100개", "qty": 1.0, "price": 9000.0, "amount": 9000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3433, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "열쇠고리 검정 100개", "qty": 1.0, "price": 15000.0, "amount": 15000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 15000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3534, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "오링고리 검정 25개", "qty": 12.0, "price": 1657.0, "amount": 19884.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19884.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3635, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 마감고리 (검정색) 10개", "qty": 5.0, "price": 3000.0, "amount": 15000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 15000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3736, "type": "purchase", "date": "2026-03-17", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "오링고리 실버 120개", "qty": 1.0, "price": 3000.0, "amount": 3000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3837, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "스틸 오프너 20개", "qty": 2.0, "price": 9000.0, "amount": 18000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 18000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 3938, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "아크릴 키링 90개", "qty": 1.0, "price": 3200.0, "amount": 3200.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 3200.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4039, "type": "purchase", "date": "2026-05-01", "month": "2026-05", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "플라스틱 키링 20개", "qty": 3.0, "price": 3200.0, "amount": 9600.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9600.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4140, "type": "purchase", "date": "2026-04-13", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "나무 오프터 10개", "qty": 1.0, "price": 9000.0, "amount": 9000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 9000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4241, "type": "purchase", "date": "2026-04-13", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "리유저블컵", "qty": 40.0, "price": 950.0, "amount": 38000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 38000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4342, "type": "purchase", "date": "2026-04-09", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "UV 인쇄", "qty": 1.0, "price": 19000.0, "amount": 19000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 19000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4443, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (형광색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4544, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (주황색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4645, "type": "purchase", "date": "2026-04-08", "month": "2026-04", "quarter": "Q2", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "볼펜", "qty": 48.0, "price": 625.0, "amount": 30000.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 30000.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}, {"id": 4746, "type": "purchase", "date": "2026-03-26", "month": "2026-03", "quarter": "Q1", "client": "알리익스프레스", "project": "", "category": "자재/용품", "item": "웨빙끈 25mm*5m (핑크색)", "qty": 1.0, "price": 4400.0, "amount": 4400.0, "vatRate": 0, "shipping": 0, "vat": 0, "total": 4400.0, "payment": "카드", "receipt": "카드전표", "staff": "대표삼촌", "memo": ""}];
 const _PU_BASE=[{"cat": "브랜드 디자인", "item": "로고", "desc": "로고 디자인", "price": 800000.0, "unit": "1식", "note": "기본형", "key": "브랜드 디자인|로고"}, {"cat": "브랜드 디자인", "item": "CI", "desc": "로고 규정/적용", "price": 900000.0, "unit": "1식", "note": "간단 가이드", "key": "브랜드 디자인|CI"}, {"cat": "브랜드 디자인", "item": "BI", "desc": "브랜드 시스템", "price": 1500000.0, "unit": "1식", "note": "가이드 포함", "key": "브랜드 디자인|BI"}, {"cat": "브랜드 디자인", "item": "심볼", "desc": "심볼/마크 개발", "price": 500000.0, "unit": "1식", "note": "", "key": "브랜드 디자인|심볼"}, {"cat": "브랜드 디자인", "item": "캐릭터", "desc": "캐릭터 디자인", "price": 600000.0, "unit": "1종", "note": "표정/포즈 별도", "key": "브랜드 디자인|캐릭터"}, {"cat": "광고/컨셉", "item": "광고", "desc": "광고 키비주얼", "price": 500000.0, "unit": "1종", "note": "", "key": "광고/컨셉|광고"}, {"cat": "광고/컨셉", "item": "영상", "desc": "썸네일/자막 패키지", "price": 300000.0, "unit": "1식", "note": "편집 별도", "key": "광고/컨셉|영상"}, {"cat": "광고/컨셉", "item": "제품사진", "desc": "메뉴/제품 촬영(기본)", "price": 500000.0, "unit": "1회", "note": "스튜디오/모델 별도", "key": "광고/컨셉|제품사진"}, {"cat": "온라인 디자인", "item": "상세페이지", "desc": "상세페이지 디자인", "price": 600000.0, "unit": "1P", "note": "기획 별도", "key": "온라인 디자인|상세페이지"}, {"cat": "온라인 디자인", "item": "SNS", "desc": "SNS 콘텐츠 디자인", "price": 150000.0, "unit": "1건", "note": "", "key": "온라인 디자인|SNS"}, {"cat": "온라인 디자인", "item": "유튜브", "desc": "유튜브 썸네일", "price": 200000.0, "unit": "1건", "note": "", "key": "온라인 디자인|유튜브"}, {"cat": "오프라인 디자인", "item": "간판", "desc": "간판 디자인", "price": 700000.0, "unit": "1식", "note": "제작/시공 별도", "key": "오프라인 디자인|간판"}, {"cat": "오프라인 디자인", "item": "현수막", "desc": "현수막 디자인", "price": 200000.0, "unit": "1종", "note": "출력 별도", "key": "오프라인 디자인|현수막"}, {"cat": "오프라인 디자인", "item": "배너", "desc": "배너/입간판", "price": 250000.0, "unit": "1종", "note": "출력 별도", "key": "오프라인 디자인|배너"}, {"cat": "인쇄물 디자인", "item": "메뉴판", "desc": "메뉴판 디자인", "price": 500000.0, "unit": "1식", "note": "페이지/버전 별도", "key": "인쇄물 디자인|메뉴판"}, {"cat": "인쇄물 디자인", "item": "전단지", "desc": "전단지 디자인", "price": 300000.0, "unit": "1종", "note": "인쇄 별도", "key": "인쇄물 디자인|전단지"}, {"cat": "인쇄물 디자인", "item": "포스터", "desc": "포스터 디자인", "price": 350000.0, "unit": "1종", "note": "인쇄 별도", "key": "인쇄물 디자인|포스터"}, {"cat": "인쇄물 디자인", "item": "명함", "desc": "명함 디자인", "price": 150000.0, "unit": "1종", "note": "인쇄 별도", "key": "인쇄물 디자인|명함"}, {"cat": "인쇄물 디자인", "item": "스티커", "desc": "스티커 디자인", "price": 180000.0, "unit": "1종", "note": "인쇄 별도", "key": "인쇄물 디자인|스티커"}, {"cat": "인테리어 디자인", "item": "공간 디자인", "desc": "공간 컨셉/가이드", "price": 2000000.0, "unit": "1식", "note": "시공 별도", "key": "인테리어 디자인|공간 디자인"}, {"cat": "인테리어 디자인", "item": "수리", "desc": "부분 수리/개선 설계", "price": 800000.0, "unit": "1식", "note": "견적 별도", "key": "인테리어 디자인|수리"}, {"cat": "인테리어 디자인", "item": "환경개선", "desc": "동선/사인/환경개선", "price": 1000000.0, "unit": "1식", "note": "부분 리뉴얼", "key": "인테리어 디자인|환경개선"}];
 const _PM_BASE=[{"cat": "브랜드전략", "item": "브랜드 네이밍 개발", "level": "프리미엄", "hours": 20.0, "rate": 65000.0, "designCost": 1300000.0, "supplyPrice": 1820000.0}, {"cat": "브랜드전략", "item": "슬로건 개발", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "브랜드전략", "item": "브랜드 컨셉 기획서", "level": "프리미엄", "hours": 25.0, "rate": 65000.0, "designCost": 1625000.0, "supplyPrice": 2275000.0}, {"cat": "브랜드전략", "item": "시장/경쟁사 분석 리포트", "level": "프리미엄", "hours": 30.0, "rate": 65000.0, "designCost": 1950000.0, "supplyPrice": 2730000.0}, {"cat": "브랜드전략", "item": "브랜드 스토리텔링 정리", "level": "고급", "hours": 15.0, "rate": 55000.0, "designCost": 825000.0, "supplyPrice": 1155000.0}, {"cat": "로고시스템", "item": "로고 기본형", "level": "고급", "hours": 20.0, "rate": 55000.0, "designCost": 1100000.0, "supplyPrice": 1540000.0}, {"cat": "로고시스템", "item": "심볼 로고", "level": "고급", "hours": 15.0, "rate": 55000.0, "designCost": 825000.0, "supplyPrice": 1155000.0}, {"cat": "로고시스템", "item": "엠블럼 로고", "level": "고급", "hours": 18.0, "rate": 55000.0, "designCost": 990000.0, "supplyPrice": 1386000.0}, {"cat": "로고시스템", "item": "서브 로고 세트", "level": "일반", "hours": 10.0, "rate": 45000.0, "designCost": 450000.0, "supplyPrice": 630000.0}, {"cat": "로고시스템", "item": "로고 리디자인", "level": "고급", "hours": 18.0, "rate": 55000.0, "designCost": 990000.0, "supplyPrice": 1386000.0}, {"cat": "브랜드가이드", "item": "브랜드 가이드북 제작", "level": "프리미엄", "hours": 30.0, "rate": 65000.0, "designCost": 1950000.0, "supplyPrice": 2730000.0}, {"cat": "브랜드가이드", "item": "컬러 시스템 정리", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "브랜드가이드", "item": "타이포그래피 시스템 정리", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "메뉴디자인", "item": "단면 메뉴판", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "메뉴디자인", "item": "양면 메뉴판", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "메뉴디자인", "item": "3단 접지 메뉴", "level": "일반", "hours": 10.0, "rate": 45000.0, "designCost": 450000.0, "supplyPrice": 630000.0}, {"cat": "메뉴디자인", "item": "메뉴북 디자인", "level": "고급", "hours": 15.0, "rate": 55000.0, "designCost": 825000.0, "supplyPrice": 1155000.0}, {"cat": "홍보인쇄물", "item": "전단지", "level": "기본", "hours": 5.0, "rate": 38000.0, "designCost": 190000.0, "supplyPrice": 266000.0}, {"cat": "홍보인쇄물", "item": "포스터 A3", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "홍보인쇄물", "item": "포스터 A2", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "홍보인쇄물", "item": "대형 포스터 A1", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "비즈니스인쇄", "item": "명함", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "비즈니스인쇄", "item": "봉투 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "비즈니스인쇄", "item": "레터지 디자인", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "비즈니스인쇄", "item": "상품권 디자인", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "대형출력", "item": "현수막 디자인", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "대형출력", "item": "대형 가로 현수막", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "대형출력", "item": "세로형 배너", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "대형출력", "item": "X배너", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "대형출력", "item": "롤배너", "level": "기본", "hours": 5.0, "rate": 38000.0, "designCost": 190000.0, "supplyPrice": 266000.0}, {"cat": "대형출력", "item": "백월 디자인", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "간판", "item": "메인 간판", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "간판", "item": "채널간판", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "간판", "item": "LED 간판", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "간판", "item": "돌출 간판", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "사인물", "item": "유리창 썬팅", "level": "고급", "hours": 8.0, "rate": 55000.0, "designCost": 440000.0, "supplyPrice": 616000.0}, {"cat": "사인물", "item": "출입문 레터링", "level": "일반", "hours": 5.0, "rate": 45000.0, "designCost": 225000.0, "supplyPrice": 315000.0}, {"cat": "사인물", "item": "방향 사인", "level": "일반", "hours": 5.0, "rate": 45000.0, "designCost": 225000.0, "supplyPrice": 315000.0}, {"cat": "사인물", "item": "화장실 사인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "사인물", "item": "테이블 넘버 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "패키지", "item": "종이컵 디자인", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "패키지", "item": "컵홀더 디자인", "level": "일반", "hours": 5.0, "rate": 45000.0, "designCost": 225000.0, "supplyPrice": 315000.0}, {"cat": "패키지", "item": "테이크아웃 박스", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "패키지", "item": "피자박스", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "패키지", "item": "도시락 박스", "level": "고급", "hours": 8.0, "rate": 55000.0, "designCost": 440000.0, "supplyPrice": 616000.0}, {"cat": "패키지", "item": "쇼핑백 디자인", "level": "일반", "hours": 8.0, "rate": 45000.0, "designCost": 360000.0, "supplyPrice": 503999.99999999994}, {"cat": "패키지", "item": "제품 라벨", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "패키지", "item": "식품 패키지 전체 리뉴얼", "level": "프리미엄", "hours": 25.0, "rate": 65000.0, "designCost": 1625000.0, "supplyPrice": 2275000.0}, {"cat": "유니폼", "item": "반팔 티셔츠", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "유니폼", "item": "긴팔 티셔츠", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "유니폼", "item": "후드티", "level": "일반", "hours": 5.0, "rate": 45000.0, "designCost": 225000.0, "supplyPrice": 315000.0}, {"cat": "유니폼", "item": "앞치마 디자인", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "유니폼", "item": "모자 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "SNS디자인", "item": "인스타 피드 템플릿", "level": "기본", "hours": 2.0, "rate": 38000.0, "designCost": 76000.0, "supplyPrice": 106400.0}, {"cat": "SNS디자인", "item": "릴스 썸네일", "level": "기본", "hours": 2.0, "rate": 38000.0, "designCost": 76000.0, "supplyPrice": 106400.0}, {"cat": "SNS디자인", "item": "카드뉴스", "level": "일반", "hours": 4.0, "rate": 45000.0, "designCost": 180000.0, "supplyPrice": 251999.99999999997}, {"cat": "디지털광고", "item": "온라인 광고 배너", "level": "일반", "hours": 3.0, "rate": 45000.0, "designCost": 135000.0, "supplyPrice": 189000.0}, {"cat": "디지털광고", "item": "배달앱 메뉴 이미지", "level": "일반", "hours": 4.0, "rate": 45000.0, "designCost": 180000.0, "supplyPrice": 251999.99999999997}, {"cat": "디지털광고", "item": "상세페이지", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "웹디자인", "item": "랜딩페이지 디자인", "level": "고급", "hours": 15.0, "rate": 55000.0, "designCost": 825000.0, "supplyPrice": 1155000.0}, {"cat": "웹디자인", "item": "홈페이지 메인 비주얼", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "영상", "item": "유튜브 썸네일", "level": "기본", "hours": 2.0, "rate": 38000.0, "designCost": 76000.0, "supplyPrice": 106400.0}, {"cat": "영상", "item": "모션 타이틀", "level": "고급", "hours": 8.0, "rate": 55000.0, "designCost": 440000.0, "supplyPrice": 616000.0}, {"cat": "영상", "item": "오프닝 영상 타이틀", "level": "고급", "hours": 10.0, "rate": 55000.0, "designCost": 550000.0, "supplyPrice": 770000.0}, {"cat": "영상", "item": "LED 전광판 콘텐츠", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "인테리어그래픽", "item": "벽면 아트워크", "level": "프리미엄", "hours": 15.0, "rate": 65000.0, "designCost": 975000.0, "supplyPrice": 1365000.0}, {"cat": "인테리어그래픽", "item": "포토존 디자인", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "인테리어그래픽", "item": "바닥 스티커", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "인테리어그래픽", "item": "테이블 매트 디자인", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "인테리어그래픽", "item": "코스터 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "특수디자인", "item": "차량 랩핑", "level": "프리미엄", "hours": 18.0, "rate": 65000.0, "designCost": 1170000.0, "supplyPrice": 1638000.0}, {"cat": "특수디자인", "item": "푸드트럭 전체 그래픽", "level": "프리미엄", "hours": 20.0, "rate": 65000.0, "designCost": 1300000.0, "supplyPrice": 1820000.0}, {"cat": "특수디자인", "item": "대형 외벽 랩핑", "level": "프리미엄", "hours": 20.0, "rate": 65000.0, "designCost": 1300000.0, "supplyPrice": 1820000.0}, {"cat": "특수디자인", "item": "팝업스토어 공간 그래픽", "level": "프리미엄", "hours": 25.0, "rate": 65000.0, "designCost": 1625000.0, "supplyPrice": 2275000.0}, {"cat": "패키지상품", "item": "오픈 풀패키지", "level": "프리미엄", "hours": 35.0, "rate": 65000.0, "designCost": 2275000.0, "supplyPrice": 3185000.0}, {"cat": "패키지상품", "item": "카페 스타터 패키지", "level": "프리미엄", "hours": 30.0, "rate": 65000.0, "designCost": 1950000.0, "supplyPrice": 2730000.0}, {"cat": "패키지상품", "item": "배달전문점 패키지", "level": "고급", "hours": 25.0, "rate": 55000.0, "designCost": 1375000.0, "supplyPrice": 1924999.9999999998}, {"cat": "패키지상품", "item": "리브랜딩 패키지", "level": "프리미엄", "hours": 40.0, "rate": 65000.0, "designCost": 2600000.0, "supplyPrice": 3640000.0}, {"cat": "굿즈", "item": "머그컵", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "굿즈", "item": "텀블러", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "굿즈", "item": "에코백", "level": "일반", "hours": 5.0, "rate": 45000.0, "designCost": 225000.0, "supplyPrice": 315000.0}, {"cat": "굿즈", "item": "스티커 굿즈", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "키링 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "테이블 매트", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "굿즈", "item": "코스터 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "물컵/맥주잔 인쇄 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "냅킨 인쇄", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "수저집 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "계산서 커버", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "굿즈", "item": "포인트 카드", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}, {"cat": "굿즈", "item": "머그컵 시즌 에디션", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "텀블러 디자인", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "원두 패키지", "level": "고급", "hours": 12.0, "rate": 55000.0, "designCost": 660000.0, "supplyPrice": 923999.9999999999}, {"cat": "굿즈", "item": "디저트 박스", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "브랜드 티셔츠", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "에코백", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "키링 디자인", "level": "기본", "hours": 3.0, "rate": 38000.0, "designCost": 114000.0, "supplyPrice": 159600.0}, {"cat": "굿즈", "item": "포스터 판매용", "level": "일반", "hours": 6.0, "rate": 45000.0, "designCost": 270000.0, "supplyPrice": 378000.0}, {"cat": "굿즈", "item": "스티커팩", "level": "기본", "hours": 4.0, "rate": 38000.0, "designCost": 152000.0, "supplyPrice": 212800.0}];
@@ -847,18 +826,18 @@ const ASD={
 
 // ══ STATE ══
 let ledger=JSON.parse(localStorage.getItem('du4_l')||'null')||IL.map((r,i)=>({...r,id:i+1}));
-let quoteList=JSON.parse(localStorage.getItem('du4_ql')||'[]');
-function sqll(){localStorage.setItem('du4_ql',JSON.stringify(quoteList));}
 let custs=JSON.parse(localStorage.getItem('du4_c2')||'[]');
 let projs=JSON.parse(localStorage.getItem('du4_p')||'null')||IP.map((p,i)=>({id:i+1,projName:p.name,company:'',category:'',item:'',contractDate:'',startDate:p.start,dueDate:p.end,staff:p.staff||'대표삼촌',contractStatus:p.status||'진행중',progressStatus:'진행중',payStatus:'미청구',supply:0,vat:0,total:0,deposit:0,balance:0,cost:0,margin:0,marginRate:0,memo:p.memo||''}));
 let asItems=JSON.parse(localStorage.getItem('du4_as')||'[]');
 let qItems=[],selPP=[];
+let quoteList=JSON.parse(localStorage.getItem('du4_ql')||'[]');
+function sqll(){localStorage.setItem('du4_ql',JSON.stringify(quoteList));fbSave('quoteList',quoteList);}
 let editLId=null,editCId=null,editPjId=null,editASId=null;
 let lType='purchase',mType='purchase';
 let lSort={col:'date',dir:-1},lPage=1,asPage=1;
 const PER=20; let qid=0;
 
-function sv(k,v){localStorage.setItem(k,JSON.stringify(v));}
+function sv(k,v){localStorage.setItem(k,JSON.stringify(v));var fk={'du4_l':'ledger','du4_c2':'custs','du4_p':'projs','du4_as':'asItems'}[k];if(fk)fbSave(fk,v);}
 function sl(){sv('du4_l',ledger);} function sc(){sv('du4_c2',custs);} function sp(){sv('du4_p',projs);} function sa(){sv('du4_as',asItems);}
 function td(){return new Date().toISOString().split('T')[0];}
 function fmt(n){return '₩'+(Math.round(n)||0).toLocaleString('ko-KR');}
@@ -979,58 +958,23 @@ function exportLedger(){
 }
 
 // ══ QUOTE ══
-
 function applyPjToQuote(){
-  var inp=document.getElementById('q-pj-sel');
-  if(!inp||!inp.value)return;
+  var inp=document.getElementById('q-pj-sel');if(!inp||!inp.value)return;
   var val=inp.value;
-  // datalist에서 원본(줄바꿈 포함) 값 찾기
-  var dl=document.getElementById('dl-qpj');
-  var pjName=val;
-  if(dl){
-    var opts=dl.querySelectorAll('option');
-    for(var i=0;i<opts.length;i++){
-      if(opts[i].value===val){
-        pjName=opts[i].getAttribute('data-pj')||val;
-        break;
-      }
-    }
-  }
-  var titleEl=document.getElementById('q-pj-sel');
-  if(titleEl)titleEl.value=pjName;
-  // 해당 프로젝트의 업체명 자동입력
-  var pj=projs.find(function(p){return p.projName===pjName||p.projName.replace(/\n/g,' ')===val;});
-  if(pj&&pj.company){
-    var coEl=document.getElementById('q-co');
-    if(coEl&&!coEl.value)coEl.value=pj.company;
-  }
+  var pj=projs.find(function(p){return p.projName.replace(/\n/g,' ')===val;});
+  var t=document.getElementById('q-title');if(t)t.value=val;
+  if(pj&&pj.company){var c=document.getElementById('q-co');if(c&&!c.value)c.value=pj.company;}
 }
 function initQ(){
-  if(!document.getElementById('q-num').value)
-    (function(){
-    var today=td().replace(/-/g,'');
-    var key='du4_qseq_'+today;
-    var seq=parseInt(localStorage.getItem(key)||'0')+1;
-    localStorage.setItem(key,seq);
-    document.getElementById('q-num').value='DU'+today+'_'+('00'+seq).slice(-2);
-  })();
-  if(!document.getElementById('q-dt').value)
-    document.getElementById('q-dt').value=td();
-  document.getElementById('dl-qco').innerHTML=[...new Set(custs.map(function(c){return c.company;}))].filter(Boolean).map(function(c){return '<option value="'+esc(c)+'">';}).join('');
+  if(!document.getElementById('q-num').value){var _td=td().replace(/-/g,'');var _k='du4_qseq_'+_td;var _s=parseInt(localStorage.getItem(_k)||'0')+1;localStorage.setItem(_k,_s);document.getElementById('q-num').value='DU'+_td+'_'+('00'+_s).slice(-2);}
+  if(!document.getElementById('q-dt').value)document.getElementById('q-dt').value=td();
+  document.getElementById('dl-qco').innerHTML=[...new Set(custs.map(c=>c.company))].filter(Boolean).map(c=>`<option value="${esc(c)}">`).join('');
   rdQI();
-  var sel=document.getElementById('q-pj-sel');
-  if(sel){
-    sel.innerHTML='<option value="">— 상호명 입력 후 프로젝트 선택 —</option>';
-    projs.slice().sort(function(a,b){return(b.startDate||b.contractDate||'')>(a.startDate||a.contractDate||'')?1:-1;})
-      .forEach(function(p){
-        var opt=document.createElement('option');
-        opt.value=p.projName;
-        opt.dataset.co=p.company||'';
-        opt.textContent=p.projName.replace(/\n/,' - ');
-        sel.appendChild(opt);
-      });
-  }
+  var _dl=document.getElementById('dl-qpj');var _pi=document.getElementById('q-pj-sel');
+  if(_pi)_pi.value='';
+  if(_dl){_dl.innerHTML='';projs.slice().sort(function(a,b){return(b.startDate||'')>(a.startDate||'')?1:-1;}).forEach(function(p){var o=document.createElement('option');o.value=p.projName.replace(/\n/g,' ');_dl.appendChild(o);});}
 }
+// 견적서 상호명 입력시 고객관리 정보 자동매칭
 function onQcoMatch(){
   const val=document.getElementById('q-co').value.trim();
   const c=custs.find(x=>x.company===val);
@@ -1045,26 +989,10 @@ function onQcoMatch(){
   }else{
     document.getElementById('q-co').dataset.matched='0';
   }
-
-  
-  // 상호명에 맞는 프로젝트 datalist 필터링
-  var dl=document.getElementById('dl-qpj');
-  var pjInp=document.getElementById('q-pj-sel');
-  if(dl){
-    dl.innerHTML='';
-    var co=val;
-    var matched=projs.filter(function(p){return !co||p.company===co;});
-    if(!matched.length)matched=projs;
-    matched.slice()
-      .sort(function(a,b){return(b.startDate||b.contractDate||'')>(a.startDate||a.contractDate||'')?1:-1;})
-      .forEach(function(p){
-        var opt=document.createElement('option');
-        opt.value=p.projName.replace(/\n/g,' ');
-        opt.setAttribute('data-pj',p.projName);
-        dl.appendChild(opt);
-      });
-    if(pjInp)pjInp.value='';
-  }
+  var _dl=document.getElementById('dl-qpj');var _pi=document.getElementById('q-pj-sel');
+  if(_dl){_dl.innerHTML='';var _mp=projs.filter(function(p){return !val||p.company===val;});if(!_mp.length)_mp=projs;
+    _mp.sort(function(a,b){return(b.startDate||'')>(a.startDate||'')?1:-1;}).forEach(function(p){var o=document.createElement('option');o.value=p.projName.replace(/\n/g,' ');_dl.appendChild(o);});}
+  if(_pi)_pi.value='';
 }
 function addQI(cat='',nm='',desc='',price=0){qid++;qItems.push({id:qid,cat,nm,desc,qty:1,unit:price,extra:0});rdQI();}
 function showPP(){selPP=[];rdPP();om('m-pp');}
@@ -1073,17 +1001,25 @@ function fltPP(){rdPP();}
 function tglPP(el,cat,item,desc,price){const key=cat+'|'+item,idx=selPP.findIndex(s=>s.key===key);if(idx>=0){selPP.splice(idx,1);el.classList.remove('sel');}else{selPP.push({key,cat,item,desc,price:+price});el.classList.add('sel');}document.getElementById('pp-cnt').textContent=selPP.length?selPP.length+'개 선택됨':'';}
 function addSelQ(){if(!selPP.length){toast('품목을 선택하세요','terr');return;}selPP.forEach(p=>addQI(p.cat,p.item,p.desc,p.price));cm('m-pp');toast('✅ '+selPP.length+'개 추가!');selPP=[];}
 function rdQI(){
-  const el=document.getElementById('q-items');
+  var el=document.getElementById('q-items');
   if(!qItems.length){el.innerHTML='<div class="empty" style="padding:18px"><div class="ei" style="font-size:24px">📝</div><div style="font-size:12px">품목을 추가하세요</div></div>';calcQT();return;}
-  el.innerHTML=qItems.map((qi,i)=>{const tot=qi.qty*(qi.unit+qi.extra);return`<div class="qi"><div><div style="display:flex;gap:5px;align-items:center"><input type="text" value="${esc(qi.nm)}" placeholder="품목명" style="flex:1;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit" oninput="qItems[${i}].nm=this.value"></div><div style="font-size:9px;color:var(--dm);margin-top:1px;padding-left:2px">${esc(qi.cat)}</div></div><input class="qii" type="number" value="${qi.qty}" min="1" oninput="qItems[${i}].qty=+this.value||1;rdQI()"><input class="qii" type="number" value="${qi.unit}" oninput="qItems[${i}].unit=+this.value;rdQI()"><input class="qii" type="number" value="${qi.extra}" oninput="qItems[${i}].extra=+this.value;rdQI()"><div class="mono g" style="text-align:right;font-size:12px">${fmt(tot)}</div><button class="bic bd2" onclick="qItems.splice(${i},1);rdQI()">✕</button></div>`;}). join('');
-  calcQT();
+  el.innerHTML=qItems.map(function(qi,i){var tot=qi.qty*(qi.unit+qi.extra);
+    return '<div class="qi">'
+      +'<input type="text" value="'+esc(qi.nm)+'" placeholder="품목명" style="min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit" oninput="qItems['+i+'].nm=this.value">'
+      +'<input type="text" value="'+esc(qi.desc||'')+'" placeholder="작업내용" style="min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit" oninput="qItems['+i+'].desc=this.value">'
+      +'<input class="qii" type="text" inputmode="numeric" value="'+qi.qty+'" placeholder="수량" oninput="this.value=this.value.replace(/[^0-9]/g,\'\');qItems['+i+'].qty=parseInt(this.value)||1;calcQT()">'
+      +'<input class="qii" type="text" inputmode="numeric" value="'+(qi.unit?qi.unit.toLocaleString():'')+'" placeholder="단가" oninput="var v=this.value.replace(/[^0-9]/g,\'\');qItems['+i+'].unit=parseInt(v)||0;this.value=v?parseInt(v).toLocaleString():\'\';calcQT()" onblur="this.value=qItems['+i+'].unit?qItems['+i+'].unit.toLocaleString():\'\'">'
+      +'<input class="qii" type="text" inputmode="numeric" value="'+(qi.extra?qi.extra.toLocaleString():'')+'" placeholder="별도" oninput="var v=this.value.replace(/[^0-9]/g,\'\');qItems['+i+'].extra=parseInt(v)||0;this.value=v?parseInt(v).toLocaleString():\'\';calcQT()" onblur="this.value=qItems['+i+'].extra?qItems['+i+'].extra.toLocaleString():\'\'">'
+      +'<div class="mono g" style="text-align:right;font-size:12px;white-space:nowrap;">'+fmt(tot)+'</div>'
+      +'<button class="bic bd2" onclick="qItems.splice('+i+',1);rdQI()">✕</button>'
+      +'</div>';}).join('');calcQT();
 }
 function calcQT(){const sup=qItems.reduce((s,qi)=>s+qi.qty*(qi.unit+qi.extra),0),vt=Math.round(sup*.1);document.getElementById('q-sup').textContent=fmt(sup);document.getElementById('q-vt').textContent=fmt(vt);document.getElementById('q-tot').textContent=fmt(sup+vt);}
 function clrQ(){if(!confirm('견적을 초기화하시겠습니까?'))return;qItems=[];document.getElementById('q-num').value='';initQ();}
 function prevQ(){
   var sup=qItems.reduce(function(s,qi){return s+qi.qty*(qi.unit+qi.extra);},0),vt=Math.round(sup*.1);
   var co=document.getElementById('q-co').value||'(고객사)',qnum=document.getElementById('q-num').value,qdt=document.getElementById('q-dt').value;
-  var qtit=document.getElementById('q-pj-sel').value||'디자인 의뢰',payc=document.getElementById('q-payc').value,exp=document.getElementById('q-exp').value;
+  var qtit=document.getElementById('q-title').value||'디자인 의뢰',payc=document.getElementById('q-payc').value,exp=document.getElementById('q-exp').value;
   var cn=document.getElementById('q-cn').value,tel=document.getElementById('q-tel').value,em=document.getElementById('q-em').value,memo=document.getElementById('q-memo').value;
   document.getElementById('qp-content').innerHTML=
     '<div class="qp">'
@@ -1099,7 +1035,7 @@ function prevQ(){
     +'<div class="qp-info">'
     +'<div class="qpi"><div class="qpil">견적번호</div><div class="qpiv">'+esc(qnum)+'</div></div>'
     +'<div class="qpi"><div class="qpil">견적일</div><div class="qpiv">'+esc(qdt)+'</div></div>'
-    +'<div class="qpi"><div class="qpil">견적명</div><div class="qpiv" style="font-weight:700;color:#1a2b6b">'+qtit.replace(/\n/g,'<br>')+'</div></div>'
+    +'<div class="qpi"><div class="qpil">견적명</div><div class="qpiv" style="font-weight:700;color:#1a2b6b">'+esc(qtit)+'</div></div>'
     +'<div class="qpi"><div class="qpil">유효기간</div><div class="qpiv">'+esc(exp)+'</div></div>'
     +'<div class="qpi"><div class="qpil">결제조건</div><div class="qpiv">'+esc(payc)+'</div></div>'
     +'<div class="qpi" style="border-bottom:1px solid #ddd"><div class="qpil">담당자</div><div class="qpiv">백승구 대표</div></div>'
@@ -1124,7 +1060,7 @@ function xlsQ(){
   const ws=XLSX.utils.aoa_to_sheet([['No','카테고리','품목명','작업내용','수량','단가','별도비용','공급가액'],...rows]);
   ws['!cols']=[5,14,16,16,5,10,8,12].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb,ws,'견적품목');
-  const ws2=XLSX.utils.aoa_to_sheet([['항목','내용'],['견적번호',document.getElementById('q-num').value],['견적일',document.getElementById('q-dt').value],['상호명',document.getElementById('q-co').value],['고객명',document.getElementById('q-cn').value],['견적명',document.getElementById('q-pj-sel').value],['입금계좌','신한은행 110-523-051745 / 백승구'],['공급가액',sup],['부가세',vt],['최종합계',sup+vt]]);
+  const ws2=XLSX.utils.aoa_to_sheet([['항목','내용'],['견적번호',document.getElementById('q-num').value],['견적일',document.getElementById('q-dt').value],['상호명',document.getElementById('q-co').value],['고객명',document.getElementById('q-cn').value],['견적명',document.getElementById('q-title').value],['입금계좌','신한은행 110-523-051745 / 백승구'],['공급가액',sup],['부가세',vt],['최종합계',sup+vt]]);
   XLSX.utils.book_append_sheet(wb,ws2,'견적정보');
   XLSX.writeFile(wb,'견적서_'+(document.getElementById('q-co').value||'견적')+'_'+document.getElementById('q-dt').value+'.xlsx');
   toast('📊 견적서 엑셀 저장!');
@@ -1133,7 +1069,7 @@ function sendQuote(){
   if(!qItems.length){toast('품목이 없습니다','terr');return;}
   var sup=qItems.reduce(function(s,qi){return s+qi.qty*(qi.unit+qi.extra);},0),vt=Math.round(sup*.1);
   var co=document.getElementById('q-co').value.trim()||'(미입력)',dt=document.getElementById('q-dt').value;
-  var title=document.getElementById('q-pj-sel').value;
+  var title=document.getElementById('q-title').value;
   var rec={id:Date.now(),qnum:document.getElementById('q-num').value||'DU'+dt.replace(/-/g,''),company:co,name:document.getElementById('q-cn').value,tel:document.getElementById('q-tel').value,email:document.getElementById('q-em').value,title:title||'디자인 의뢰',date:dt,exp:document.getElementById('q-exp').value,payc:document.getElementById('q-payc').value,supply:sup,vat:vt,total:sup+vt,items:JSON.parse(JSON.stringify(qItems)),status:'발송완료',memo:''};
   quoteList.unshift(rec);sqll();
   ledger.push({id:Date.now()+1,type:'sales',date:dt,month:(dt||'').slice(0,7),quarter:'Q'+(Math.ceil((+(dt||'').slice(5,7))/3)||1),client:co,project:title,category:'매출-디자인',item:qItems.map(function(q){return q.nm;}).join(', '),qty:1,price:sup,amount:sup,shipping:0,vat:vt,total:sup+vt,payment:'미정',receipt:'세금계산서',staff:'대표삼촌',memo:'견적서 발송완료'});
@@ -1166,53 +1102,31 @@ function setQlView(v){localStorage.setItem('du4_ql_v',v);rdQList();}
 function qlSt(id,s){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;r.status=s;sqll();rdQList();}
 function qlMemo(id,m){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;r.memo=m;sqll();}
 function qlDel(id){if(!confirm('삭제?'))return;quoteList=quoteList.filter(function(x){return x.id!==id;});sqll();rdQList();}
-function qlLoad(id){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;qItems=JSON.parse(JSON.stringify(r.items||[]));document.getElementById('q-num').value=r.qnum||'';document.getElementById('q-dt').value=r.date||'';document.getElementById('q-co').value=r.company||'';document.getElementById('q-pj-sel').value=r.title||'';document.getElementById('q-cn').value=r.name||'';document.getElementById('q-tel').value=r.tel||'';document.getElementById('q-em').value=r.email||'';goP('quote');rdQI();toast('견적서 불러오기 완료!');}
+function qlLoad(id){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;qItems=JSON.parse(JSON.stringify(r.items||[]));document.getElementById('q-num').value=r.qnum||'';document.getElementById('q-dt').value=r.date||'';document.getElementById('q-co').value=r.company||'';document.getElementById('q-title').value=r.title||'';document.getElementById('q-cn').value=r.name||'';document.getElementById('q-tel').value=r.tel||'';document.getElementById('q-em').value=r.email||'';goP('quote');rdQI();toast('견적서 불러오기 완료!');}
 function xlsQl(){var wb=XLSX.utils.book_new();var ws=XLSX.utils.aoa_to_sheet([['견적번호','발송일','상호명','견적명','공급가액','상태','메모']].concat(quoteList.map(function(r){return[r.qnum,r.date,r.company,r.title,r.supply,r.status,r.memo];})));XLSX.utils.book_append_sheet(wb,ws,'견적관리');XLSX.writeFile(wb,'견적관리.xlsx');}
 function openPrAdd(){var md=document.getElementById('m-pr-add');if(!md)return;['pa-cat','pa-item','pa-desc','pa-unit','pa-note'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var el=document.getElementById('pa-price');if(el)el.value='';md.style.display='';}
 function savePrAdd(){var src=(document.getElementById('pa-src')||{value:'uncle'}).value;var cat=(document.getElementById('pa-cat')||{value:''}).value.trim();var item=(document.getElementById('pa-item')||{value:''}).value.trim();var price=parseInt(((document.getElementById('pa-price')||{value:'0'}).value+'').replace(/[^0-9]/g,''))||0;var desc=(document.getElementById('pa-desc')||{value:''}).value.trim();var unit=(document.getElementById('pa-unit')||{value:''}).value.trim();var note=(document.getElementById('pa-note')||{value:''}).value.trim();if(!cat||!item){toast('카테고리와 품목명은 필수입니다','terr');return;}var all=src==='uncle'?PU:PM;all.push({cat:cat,item:item,desc:desc||item,price:price,unit:unit,note:note,key:cat+'|'+item});localStorage.setItem(src==='uncle'?'du4_pu_e':'du4_pm_e',JSON.stringify(all));cm('m-pr-add');rdPr();toast('✅ 품목 추가: '+item);}
 function openAddrSearch(){
-  var modal=document.getElementById('m-addr');
-  var wrap=document.getElementById('mc-addr-wrap');
-  if(!modal||!wrap)return;
-  wrap.innerHTML='';
-  modal.style.display='flex';
-  function run(){
-    new daum.Postcode({
-      oncomplete:function(d){
-        var zipEl=document.getElementById('mc-zip');
-        var adEl=document.getElementById('mc-ad');
-        var ad2El=document.getElementById('mc-ad2');
-        if(zipEl)zipEl.value=d.zonecode||'';
-        if(adEl)adEl.value=d.roadAddress||d.jibunAddress||'';
-        if(ad2El){ad2El.value='';setTimeout(function(){ad2El.focus();},100);}
-        closeAddrSearch();
-        toast('✅ 주소 선택 완료');
-      },
-      width:'100%',
-      height:'100%'
-    }).embed(wrap,{autoClose:false});
-  }
-  if(window.daum&&window.daum.Postcode){
-    run();
-  } else {
-    var s=document.createElement('script');
-    s.src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-    s.onload=function(){setTimeout(run,200);};
-    document.head.appendChild(s);
-  }
+  var modal=document.getElementById('m-addr'),wrap=document.getElementById('mc-addr-wrap');
+  if(!modal||!wrap)return;wrap.innerHTML='';modal.style.display='flex';
+  function run(){new daum.Postcode({oncomplete:function(d){
+    var z=document.getElementById('mc-zip'),a=document.getElementById('mc-ad'),a2=document.getElementById('mc-ad2');
+    if(z)z.value=d.zonecode||'';if(a)a.value=d.roadAddress||d.jibunAddress||'';
+    if(a2){a2.value='';setTimeout(function(){a2.focus();},100);}
+    closeAddrSearch();toast('\u2705 주소 선택 완료');
+  },width:'100%',height:'100%'}).embed(wrap,{autoClose:false});}
+  if(window.daum&&window.daum.Postcode){run();}
+  else{var s=document.createElement('script');s.src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';s.onload=function(){setTimeout(run,200);};document.head.appendChild(s);}
 }
 function closeAddrSearch(){
-  var layer=document.getElementById('daum-addr-layer');
-  var bg=document.getElementById('daum-addr-bg');
-  if(layer)layer.style.display='none';
-  if(bg)bg.style.display='none';
+  var m=document.getElementById('m-addr'),w=document.getElementById('mc-addr-wrap');
+  if(m)m.style.display='none';if(w)w.innerHTML='';
 }
-function applyManualAddr(){}
 function q2ledger(){
   if(!qItems.length){toast('품목이 없습니다','terr');return;}
   const sup=qItems.reduce((s,qi)=>s+qi.qty*(qi.unit+qi.extra),0),vt=Math.round(sup*.1);
   const cl=document.getElementById('q-co').value.trim()||'(미입력)',dt=document.getElementById('q-dt').value;
-  ledger.push({id:Date.now(),type:'sales',date:dt,month:dt.slice(0,7),quarter:'Q'+(Math.ceil((+dt.slice(5,7))/3)||1),client:cl,project:document.getElementById('q-pj-sel').value,category:'매출-디자인',item:qItems.map(qi=>qi.nm).join(', '),qty:1,price:sup,amount:sup,shipping:0,vat:vt,total:sup+vt,payment:'미정',receipt:'세금계산서',staff:'대표삼촌',memo:'견적서 기반 등록'});
+  ledger.push({id:Date.now(),type:'sales',date:dt,month:dt.slice(0,7),quarter:'Q'+(Math.ceil((+dt.slice(5,7))/3)||1),client:cl,project:document.getElementById('q-title').value,category:'매출-디자인',item:qItems.map(qi=>qi.nm).join(', '),qty:1,price:sup,amount:sup,shipping:0,vat:vt,total:sup+vt,payment:'미정',receipt:'세금계산서',staff:'대표삼촌',memo:'견적서 기반 등록'});
   sl();toast('✅ 매출 장부 등록 완료!');
 }
 
@@ -1878,7 +1792,7 @@ const INIT_VENDORS = (()=>{
 
 let vendors=JSON.parse(localStorage.getItem('du4_vd')||'null')||INIT_VENDORS;
 let editVdId=null;
-function sv_vd(){localStorage.setItem('du4_vd',JSON.stringify(vendors));}
+function sv_vd(){localStorage.setItem('du4_vd',JSON.stringify(vendors));fbSave('vendors',vendors);}
 
 function fltVd(){
   var q=document.getElementById('vd-q').value.toLowerCase(),tf=document.getElementById('vd-type').value,cf=document.getElementById('vd-cat').value;
@@ -2077,7 +1991,7 @@ function loadPjToQuote(pjId){
   if(!p)return;
   // 고객 정보
   document.getElementById('q-co').value=p.company||'';
-  document.getElementById('q-pj-sel').value=p.projName||'';
+  document.getElementById('q-title').value=p.projName||'';
   // 고객DB에서 연락처/이메일
   const c=custs.find(x=>x.company===p.company);
   if(c){
@@ -2126,79 +2040,23 @@ function rdPjItems(){
 
 
 
-function autoPjName(force){
-  var nm=document.getElementById('mp-nm');
-  if(!nm)return;
-  if(!force&&nm.dataset.manual==='1')return;
-  var cat=(document.getElementById('mp-cat')||{value:''}).value.trim();
-  var item=(document.getElementById('mp-item')||{value:''}).value.trim();
-  var result='';
-  if(cat&&item&&item!=='선택'&&item!==''){
-    result=cat+' / '+item;
-  } else if(cat){
-    result=cat;
-  }
-  if(result){
-    nm.value=result;
-    nm.dataset.manual='0';
-  }
-}
-function closeAddrSearch(){
-  var modal=document.getElementById('m-addr');
-  var wrap=document.getElementById('mc-addr-wrap');
-  if(modal)modal.style.display='none';
-  if(wrap)wrap.innerHTML='';
-}
+function autoPjName(force){var nm=document.getElementById('mp-nm');if(!nm)return;if(!force&&nm.dataset.manual==='1')return;var cat=(document.getElementById('mp-cat')||{value:''}).value.trim();var item=(document.getElementById('mp-item')||{value:''}).value.trim();var result='';if(cat&&item&&item!=='선택'&&item!==''){result=cat+' / '+item;}else if(cat){result=cat;}if(result){nm.value=result;nm.dataset.manual='0';}}
 // ══ KEYBOARD ══
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.ov').forEach(o=>o.style.display='none');});
 
 
-
-
-function exportAllData(){
-  var keys=['du4_l','du4_c2','du4_p','du4_as','du4_vd','du4_ql','du4_pu_e','du4_pm_e'];
-  var data={_version:1,_date:new Date().toISOString(),_app:'TheDesignUncle'};
-  keys.forEach(function(k){
-    var v=localStorage.getItem(k);
-    if(v)try{data[k]=JSON.parse(v);}catch(e){data[k]=v;}
-  });
-  var json=JSON.stringify(data,null,2);
-  var blob=new Blob([json],{type:'application/json'});
-  var url=URL.createObjectURL(blob);
-  var a=document.createElement('a');
-  a.href=url;
-  a.download='TheDesignUncle_backup_'+new Date().toISOString().slice(0,10)+'.json';
-  a.click();
-  URL.revokeObjectURL(url);
-  toast('✅ 데이터 내보내기 완료! ('+Object.keys(data).length+'개 항목)');
-}
-function importAllData(e){
-  var file=e.target.files[0];
-  if(!file)return;
-  var reader=new FileReader();
-  reader.onload=function(ev){
-    try{
-      var data=JSON.parse(ev.target.result);
-      if(data._app!=='TheDesignUncle'){toast('올바른 백업 파일이 아닙니다','terr');return;}
-      var keys=['du4_l','du4_c2','du4_p','du4_as','du4_vd','du4_ql','du4_pu_e','du4_pm_e'];
-      var count=0;
-      keys.forEach(function(k){
-        if(data[k]!==undefined){
-          localStorage.setItem(k,JSON.stringify(data[k]));
-          count++;
-        }
-      });
-      toast('✅ 데이터 가져오기 완료! ('+count+'개 항목) 새로고침합니다...');
-      setTimeout(function(){location.reload();},1500);
-    }catch(err){
-      toast('파일 읽기 오류: '+err.message,'terr');
-    }
-  };
-  reader.readAsText(file);
-  e.target.value='';
-}
 // ══ INIT ══
 document.getElementById('lf-d').value=td();
-rdDash();rdLedger();rdDashFlow();
+(function(){var ov=document.createElement('div');ov.id='fb-loading';ov.style.cssText='position:fixed;inset:0;z-index:99999;background:var(--bg,#0d0f18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;';ov.innerHTML='<div style="font-size:32px">☁️</div><div style="color:#fff;font-size:14px;font-weight:700">데이터 불러오는 중...</div><div style="width:200px;height:4px;background:#222;border-radius:2px;overflow:hidden"><div id="fb-prog" style="height:100%;background:var(--g,#39d353);width:0%;transition:width .4s"></div></div>';document.body.appendChild(ov);})();
+function _prog(p){var el=document.getElementById('fb-prog');if(el)el.style.width=p+'%';}
+function _hideLoading(){var ov=document.getElementById('fb-loading');if(ov)ov.remove();}
+var _fbN=0;
+function _onFbLoad(){_fbN++;_prog(Math.round(_fbN/6*100));if(_fbN>=6){setTimeout(function(){_hideLoading();rdDash();rdLedger();rdDashFlow();},200);}}
+fbLoad('ledger',IL.map(function(r,i){return Object.assign({},r,{id:i+1});}),function(d){ledger=d;_onFbLoad();});
+fbLoad('custs',[],function(d){custs=d;_onFbLoad();});
+fbLoad('projs',IP.map(function(p,i){return {id:i+1,projName:p.name||'',company:p.company||'',startDate:p.startDate||'',contractDate:p.contractDate||'',endDate:p.endDate||'',progressStatus:p.progressStatus||'진행중',amount:p.amount||0,memo:p.memo||''};}),function(d){projs=d;_onFbLoad();});
+fbLoad('asItems',[],function(d){asItems=d;_onFbLoad();});
+fbLoad('vendors',INIT_VENDORS,function(d){vendors=d;_onFbLoad();});
+fbLoad('quoteList',[],function(d){quoteList=d;_onFbLoad();});
 </script>
 </body></html>
