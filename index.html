@@ -268,6 +268,12 @@ select.fs{height:32px;box-sizing:border-box;}
 /* 스크롤바 숨김 (PC) */
 ::-webkit-scrollbar{width:0px;height:0px;background:transparent;}
 * {scrollbar-width:none;}
+
+#pg-ledger .tw table{table-layout:auto;min-width:700px;}
+#pg-ledger .tw th,#pg-ledger .tw td{padding:6px 8px;font-size:11px;white-space:nowrap;}
+#pg-ledger .tw thead th{background:var(--s2);color:var(--mu);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;cursor:pointer;user-select:none;border-bottom:1px solid var(--bd);}
+#pg-ledger .tw thead th:hover{color:var(--tx);}
+#pg-ledger .tw tbody tr:hover{background:var(--s2);}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -380,14 +386,18 @@ select.fs{height:32px;box-sizing:border-box;}
       <div id="l-card-wrap" style="display:none;padding:12px"></div>
       <div id="l-table-wrap"><div class="tw">
         <table><thead><tr>
-          <th onclick="srtL('date')">날짜</th><th onclick="srtL('quarter')">분기</th><th>유형</th>
-          <th onclick="srtL('client')">거래처</th><th>프로젝트</th><th>분류</th>
+          <th onclick="srtL('date')">날짜</th>
+          <th onclick="srtL('quarter')">분기</th>
+          <th>유형</th>
+          <th onclick="srtL('client')">거래처</th>
+          <th>분류</th>
           <th onclick="srtL('item')">품목/내용</th>
-          <th style="text-align:right">수량</th><th style="text-align:right">단가</th>
-          <th onclick="srtL('amount')" style="text-align:right">공급가액</th>
-          <th style="text-align:right">배송비</th><th style="text-align:right">부가세</th>
+          <th style="text-align:right">수량</th>
+          <th style="text-align:right">단가</th>
           <th onclick="srtL('total')" style="text-align:right">합계</th>
-          <th>결제</th><th>증빙</th><th>담당자</th><th>비고</th><th>관리</th>
+          <th>결제</th>
+          <th>담당자</th>
+          <th>관리</th>
         </tr></thead>
         <tbody id="l-body"></tbody></table>
         <div class="empty" id="l-empty" style="display:none"><div class="ei">📋</div><div>거래 내역 없음</div></div>
@@ -927,6 +937,7 @@ function setVdView(v){localStorage.setItem('v_vd',v);setVBtn('vd-view-card-btn',
 function rdCu(){fltCu();}
 function rdVd(){fltVd();}
 function filterL(){lPage=1;rdLedger();}
+
 function rdLedger(){
   var lv=localStorage.getItem('v_l')||'table';setVBtn('l-view-card-btn','l-view-table-btn',lv);
   document.getElementById('dl-cl').innerHTML=[...new Set(ledger.map(r=>r.client))].map(c=>`<option value="${esc(c)}">`).join('');
