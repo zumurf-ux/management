@@ -203,7 +203,7 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .cu-preview-item span{color:var(--tx);font-weight:500}
 
 /* 견적서 - 프로젝트 연동 패널 */
-.pj-link-panel{background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:10px 12px;margin-bottom:12px}
+.pj-link-panel{background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:10px 12px;margin-bottom:8px}
 .pj-link-title{font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .pj-cards-wrap{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px}
 .pj-card-sm{flex-shrink:0;background:var(--s1);border:1px solid var(--bd);border-radius:7px;padding:8px 11px;cursor:pointer;transition:all .15s;min-width:140px}
@@ -977,8 +977,9 @@ function initQ(){
   var _dl=document.getElementById('dl-qpj');var _pi=document.getElementById('q-pj-sel');
   if(_pi)_pi.value='';
   if(_dl){_dl.innerHTML='';projs.slice().sort(function(a,b){return(b.startDate||'')>(a.startDate||'')?1:-1;}).forEach(function(p){var o=document.createElement('option');o.value=p.projName.replace(/\n/g,' ');_dl.appendChild(o);});}
+  rdQPjPanel();
+  rdQPjPanel();
 }
-// 견적서 상호명 입력시 고객관리 정보 자동매칭
 function onQcoMatch(){
   const val=document.getElementById('q-co').value.trim();
   const c=custs.find(x=>x.company===val);
@@ -1975,7 +1976,7 @@ function savePjAndQuote(){
 function rdQPjPanel(){
   const el=document.getElementById('q-pj-cards');
   if(!el)return;
-  const active=projs.filter(p=>!['완료','취소'].includes(p.contractStatus)).slice(0,8);
+  const active=projs.filter(p=>!['완료','취소'].includes(p.progressStatus)).slice(0,8);
   if(!active.length){
     el.innerHTML='<div style="font-size:11px;color:var(--dm);padding:8px">진행중인 프로젝트가 없습니다.</div>';
     return;
@@ -1995,7 +1996,7 @@ function loadPjToQuote(pjId){
   if(!p)return;
   // 고객 정보
   document.getElementById('q-co').value=p.company||'';
-  document.getElementById('q-title').value=p.projName||'';
+  var _qpj=document.getElementById('q-pj-sel');if(_qpj)_qpj.value=p.projName||'';
   // 고객DB에서 연락처/이메일
   const c=custs.find(x=>x.company===p.company);
   if(c){
