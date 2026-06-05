@@ -127,11 +127,11 @@ tbody td{padding:8px 10px;vertical-align:middle}
 .qpi{display:flex;border-bottom:1px solid #e8e8e8}
 .qpi:nth-child(odd){border-right:1px solid #ccc}
 .qpi:last-child,.qpi:nth-last-child(2){border-bottom:none}
-.qpil{background:#f4f4f4;padding:5px 8px;font-weight:700;width:84px;flex-shrink:0;color:#444;font-size:10px;display:flex;align-items:center}
+.qpil{background:#f4f4f4;padding:5px 8px;font-weight:700;width:84px;flex-shrink:0;color:#111;font-size:10px;display:flex;align-items:center}
 .qpiv{padding:5px 8px;flex:1;display:flex;align-items:center}
 .qp-tbl{width:100%;border-collapse:collapse;font-size:11px;margin:8px 0}
 .qp-tbl th{background:#1a2b6b;color:#fff;border:1px solid #1a2b6b;padding:5px 8px;text-align:center;font-weight:700}
-.qp-tbl td{border:1px solid #ddd;padding:5px 8px}
+.qp-tbl td{border:1px solid #ddd;padding:5px 8px;font-weight:400;color:#111}
 .qp-tot{border:2px solid #1a2b6b;border-radius:5px;overflow:hidden;margin:8px 0}
 .qp-tr{display:flex;justify-content:space-between;padding:5px 12px;border-bottom:1px solid #eee;font-size:11px}
 .qp-tr.last{border:none;background:#1a2b6b;color:#fff;font-weight:700;font-size:13px}
@@ -449,8 +449,8 @@ select.fs{height:32px;box-sizing:border-box;}
           <div style="display:flex;gap:5px">
             <button class="btn bgh bsm" onclick="showPP()">📋 단가표 선택</button>
             <button class="btn bgh bsm" onclick="addQI()">+ 직접 입력</button>
-            <button class="btn bs2 bsm" onclick="addQBlank()" style="border-style:dashed">＋ 빈칸</button>
-            <button class="btn bs2 bsm" onclick="addQDivider()" style="border-style:dashed;color:var(--mu)">— 이하여백</button>
+            <button class="btn bs2 bsm" onclick="addQDivider()">이하여백</button>
+            <button class="btn bs2 bsm" onclick="addQBlank()">빈칸</button>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 60px 100px 80px 90px 24px;gap:6px;padding:3px 10px;margin-bottom:3px">
@@ -1114,48 +1114,43 @@ function prevQ(){
     +'<div class="qp-title-big">견 &nbsp;&nbsp; 적 &nbsp;&nbsp; 서</div>'
     +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">'
     +'<div style="border:1px solid #ccc;border-radius:4px;overflow:hidden;border-bottom:2px solid #ccc"><div style="background:#1a2b6b;color:#fff;padding:5px 10px;font-size:10px;font-weight:700">발주사 (수신)</div><div style="padding:8px 10px 9px;font-size:10px;line-height:1.9"><div style="font-weight:700;font-size:13px;margin-bottom:3px">'+esc(co)+' 귀중</div>'+(cn?'<div>고객명: '+esc(cn)+'</div>':'')+(tel?'<div>연락처: '+esc(tel)+'</div>':'')+(em?'<div>이메일: '+esc(em)+'</div>':'')+(qaddr?'<div>주소: '+esc(qaddr)+'</div>':'')+'</div></div>'
-    +'<div style="border:1px solid #ccc;border-radius:4px;overflow:hidden;border-bottom:2px solid #ccc"><div style="background:#1a2b6b;color:#fff;padding:5px 10px;font-size:10px;font-weight:700">공급사</div><div style="display:flex;align-items:stretch"><div style="flex:1;padding:8px 10px 9px;font-size:10px;line-height:1.9"><div style="font-weight:700;font-size:13px;margin-bottom:3px">디자인하는삼촌</div><div style="color:#444">사업자등록번호: 508-23-93088</div><div style="color:#444">대표: 백승구 | 010-2085-8781</div><div style="color:#444">thedesignuncle@gmail.com</div><div style="color:#444">인천 연수구 인천타워대로 54번길 3, 5층 16호</div></div><div style="padding:6px 6px;display:flex;align-items:center;justify-content:center"><div style="border:1px solid #ddd;border-radius:4px;padding:10px 12px;text-align:center;min-width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><div style="font-weight:800;font-size:15px;color:#1a2b6b">디자인하는삼촌</div><div style="color:#444;font-size:12px">대표 백 승 구</div><div style="color:#999;font-size:11px">(직인 생략)</div></div></div></div></div>'
+    +'<div style="border:1px solid #ccc;border-radius:4px;overflow:hidden;border-bottom:2px solid #ccc"><div style="background:#1a2b6b;color:#fff;padding:5px 10px;font-size:10px;font-weight:700">공급사</div><div style="display:flex;align-items:stretch"><div style="flex:1;padding:8px 10px 9px;font-size:10px;line-height:1.9"><div style="font-weight:700;font-size:13px;font-weight:700;margin-bottom:3px;color:#111">디자인하는삼촌</div><div style="color:#111">사업자등록번호: 508-23-93088</div><div style="color:#111">대표: 백승구 | 010-2085-8781</div><div style="color:#111">thedesignuncle@gmail.com</div><div style="color:#111">인천 연수구 인천타워대로 54번길 3, 5층 16호</div></div><div style="padding:6px 6px;display:flex;align-items:center;justify-content:center"><div style="border:1px solid #ddd;border-radius:4px;padding:10px 12px;text-align:center;min-width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px"><div style="font-weight:800;font-size:15px;color:#1a2b6b">디자인하는삼촌</div><div style="color:#111;font-size:12px">대표 백 승 구</div><div style="color:#999;font-size:11px">(직인 생략)</div></div></div></div></div>'
     +'</div>'
     +'<div class="qp-info">'
     +'<div class="qpi"><div class="qpil">견적번호</div><div class="qpiv">'+esc(qnum)+'</div></div>'
     +'<div class="qpi"><div class="qpil">견적일</div><div class="qpiv">'+esc(qdt)+'</div></div>'
-    +'<div class="qpi"><div class="qpil">견적명</div><div class="qpiv" style="font-weight:700;color:#1a2b6b">'+esc(qtit)+'</div></div>'
-    +'<div class="qpi"><div class="qpil">견적금액</div><div class="qpiv" style="font-weight:700;color:#1a2b6b">금 '+numToKor(sup+vt)+'원정 / '+((sup+vt).toLocaleString())+'원 (VAT포함)</div></div>'
+    +'<div class="qpi"><div class="qpil">견적명</div><div class="qpiv" style="color:#111">'+esc(qtit)+'</div></div>'
+    +'<div class="qpi"><div class="qpil">견적금액</div><div class="qpiv" style="color:#111">금 '+numToKor(sup+vt)+'원정 / '+((sup+vt).toLocaleString())+'원 (VAT포함)</div></div>'
     +'<div class="qpi"><div class="qpil">유효기간</div><div class="qpiv">'+esc(exp)+'</div></div>'
     +'<div class="qpi"><div class="qpil">결제조건</div><div class="qpiv">'+esc(payc)+'</div></div>'
     +'<div class="qpi" style="border-bottom:none"><div class="qpil">담당자</div><div class="qpiv">백승구 대표</div></div>'
-    +'<div class="qpi" style="border-bottom:none;border-right:none"><div class="qpil">입금계좌</div><div class="qpiv" style="font-weight:700;color:#1a2b6b">신한은행 110-523-051745 &nbsp;/&nbsp; 예금주: 백승구</div></div>'
+    +'<div class="qpi" style="border-bottom:none;border-right:none"><div class="qpil">입금계좌</div><div class="qpiv" style="color:#111">신한은행 110-523-051745 &nbsp;/&nbsp; 예금주: 백승구</div></div>'
     +'</div>'
     +'<table class="qp-tbl"><thead><tr><th style="width:26px">No</th><th style="text-align:left;min-width:120px">품목명</th><th style="text-align:left;width:130px">작업내용</th><th style="width:34px">수량</th><th style="width:90px">단가</th><th style="width:66px">별도비용</th><th style="width:96px">공급가액</th></tr></thead>'
-    +'<tbody>'+qItems.map(function(qi,i){return'<tr><td style="text-align:center">'+(i+1)+'</td><td style="font-weight:600">'+esc(qi.nm)+'</td><td style="color:#666;font-size:10px">'+esc(qi.desc||'—')+'</td><td style="text-align:center">'+qi.qty+'</td><td style="text-align:right">₩'+qi.unit.toLocaleString()+'</td><td style="text-align:right">'+(qi.extra?'₩'+qi.extra.toLocaleString():'—')+'</td><td style="text-align:right;font-weight:600">₩'+(qi.qty*(qi.unit+qi.extra)).toLocaleString()+'</td></tr>';}).join('')+'</tbody>'
-    +'</table>'
-    +'<div class="qp-tot"><div class="qp-tr"><span>공급가액 합계 (VAT별도)</span><span style="font-family:monospace">₩'+sup.toLocaleString()+'</span></div><div class="qp-tr"><span>부가세 (VAT 10%)</span><span style="font-family:monospace">₩'+vt.toLocaleString()+'</span></div><div class="qp-tr last"><span>최종 합계 (VAT포함)</span><span style="font-family:monospace">₩'+(sup+vt).toLocaleString()+'</span></div></div>'
-    +(memo?'<div style="margin:8px 0;padding:7px 10px;background:#f8f9ff;border-left:3px solid #1a2b6b;font-size:10px;color:#444">'+esc(memo)+'</div>':'')
-    +'<div class="qp-note">※ 상기 견적은 본건에 한하며 타 견적사례가 될 수 없습니다.<br>※ 디자인 결과물의 저작권은 공급사(디자인하는삼촌)에 귀속됩니다. 수요자는 매장 운영 및 홍보 목적에 한하여 사용할 수 있습니다.<br>※ 최종 납품물은 이미지 파일(jpg, png, pdf)이며, 편집 원본(ai, psd)은 별도 협의 후 제공합니다.</div>'
-    +'<div class="qp-bottom"><div style="font-size:10px;color:#999">본 견적서는 전자문서로 작성되었습니다.</div></div>'
-    +'</div>';
-  om('m-qp');
-tbody.innerHTML=qItems.map(function(qi,i){
-  var isDivider=qi.divider||qi.nm==='— 이 하 여 백 —';
+    +'<tbody>'+qItems.map(function(qi,i){
+  var isDivider=qi.divider||qi.nm=='— 이 하 여 백 —';
   var isBlank=(!isDivider)&&(qi.blank||(qi.nm===''&&qi.qty===0&&qi.unit===0));
-  if(isDivider){
-    return '<tr><td colspan="7" style="text-align:center;color:#aaa;font-size:10px;padding:6px 0;letter-spacing:3px;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc">—————————— 이 하 여 백 ——————————</td></tr>';
-  }
-  if(isBlank){
-    return '<tr style="height:22px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
-  }
-  var no=qItems.slice(0,i).filter(function(x){return !x.divider&&!x.blank&&!(x.nm===''&&x.qty===0&&x.unit===0)&&x.nm!=='— 이 하 여 백 —';}).length+1;
+  if(isDivider){return'<tr><td colspan="7" style="text-align:center;color:#555;font-size:10px;padding:6px 0;letter-spacing:3px;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc">- 이 하 여 백 -</td></tr>';}
+  if(isBlank){return'<tr style="height:22px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';}
+  var no=qItems.slice(0,i).filter(function(x){return !x.divider&&!(x.nm==='— 이 하 여 백 —')&&!x.blank&&!(x.nm===''&&x.qty===0&&x.unit===0);}).length+1;
   var tot=qi.qty*(qi.unit+qi.extra);
-  return '<tr>'
+  return'<tr>'
     +'<td style="text-align:center">'+no+'</td>'
-    +'<td style="font-weight:600">'+esc(qi.nm)+'</td>'
-    +'<td style="color:#666;font-size:10px">'+esc(qi.desc||'—')+'</td>'
+    +'<td>'+esc(qi.nm)+'</td>'
+    +'<td style="color:#333;font-size:10px">'+esc(qi.desc||'—')+'</td>'
     +'<td style="text-align:center">'+qi.qty+'</td>'
     +'<td style="text-align:right">₩'+qi.unit.toLocaleString()+'</td>'
     +'<td style="text-align:right">'+(qi.extra?'₩'+qi.extra.toLocaleString():'—')+'</td>'
-    +'<td style="text-align:right;font-weight:600">₩'+tot.toLocaleString()+'</td>'
+    +'<td style="text-align:right;color:#111">₩'+tot.toLocaleString()+'</td>'
     +'</tr>';
-}).join('')}
+}).join('')+'</tbody>'
+    +'</table>'
+    +'<div class="qp-tot"><div class="qp-tr"><span>공급가액 합계 (VAT별도)</span><span style="font-family:monospace">₩'+sup.toLocaleString()+'</span></div><div class="qp-tr"><span>부가세 (VAT 10%)</span><span style="font-family:monospace">₩'+vt.toLocaleString()+'</span></div><div class="qp-tr last"><span>최종 합계 (VAT포함)</span><span style="font-family:monospace">₩'+(sup+vt).toLocaleString()+'</span></div></div>'
+    +(memo?'<div style="margin:8px 0;padding:7px 10px;background:#f8f9ff;border-left:3px solid #1a2b6b;font-size:10px;color:#111">'+esc(memo)+'</div>':'')
+    +'<div class="qp-note">※ 상기 견적은 본건에 한하며 타 견적사례가 될 수 없습니다.<br>※ 디자인 결과물의 저작권은 공급사(디자인하는삼촌)에 귀속됩니다. 수요자는 매장 운영 및 홍보 목적에 한하여 사용할 수 있습니다.<br>※ 최종 납품물은 이미지 파일(jpg, png, pdf)이며, 편집 원본(ai, psd)은 별도 협의 후 제공합니다.</div>'
+    +'<div class="qp-bottom"><div style="font-size:10px;color:#999">본 견적서는 전자문서로 작성되었습니다.</div></div>'
+    +'</div>';
+  om('m-qp');}
 function xlsQ(){
   if(!qItems.length){toast('품목이 없습니다','terr');return;}
   const sup=qItems.reduce((s,qi)=>s+qi.qty*(qi.unit+qi.extra),0),vt=Math.round(sup*.1);
