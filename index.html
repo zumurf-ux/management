@@ -1100,7 +1100,7 @@ function numToKor(n){
   return str;
 }
 function prevQ(){
-  var sup=qItems.reduce(function(s,qi){return s+(qi.blank||qi.divider?0:qi.qty*(qi.unit+qi.extra));},0),vt=Math.round(sup*.1);
+  var sup=qItems.reduce(function(s,qi){var isDivider=qi.divider||qi.nm==='— 이 하 여 백 —';var isBlank=qi.blank||(qi.nm===''&&qi.qty===0&&qi.unit===0);return s+(isDivider||isBlank?0:qi.qty*(qi.unit+qi.extra));},0),vt=Math.round(sup*.1);
   var co=document.getElementById('q-co').value||'(고객사)'
   ,qaddr=(document.getElementById('q-addr')||{value:''}).value,qnum=document.getElementById('q-num').value,qdt=document.getElementById('q-dt').value;
   var qtit=(document.getElementById('q-pj-sel')||document.getElementById('q-title')||{value:''}).value||'디자인 의뢰',payc=document.getElementById('q-payc').value,exp=document.getElementById('q-exp').value;
@@ -1136,13 +1136,15 @@ function prevQ(){
     +'</div>';
   om('m-qp');
 tbody.innerHTML=qItems.map(function(qi,i){
-  if(qi.divider){
+  var isDivider=qi.divider||qi.nm==='— 이 하 여 백 —';
+  var isBlank=(!isDivider)&&(qi.blank||(qi.nm===''&&qi.qty===0&&qi.unit===0));
+  if(isDivider){
     return '<tr><td colspan="7" style="text-align:center;color:#aaa;font-size:10px;padding:6px 0;letter-spacing:3px;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc">—————————— 이 하 여 백 ——————————</td></tr>';
   }
-  if(qi.blank){
+  if(isBlank){
     return '<tr style="height:22px"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
   }
-  var no=qItems.slice(0,i).filter(function(x){return !x.blank&&!x.divider;}).length+1;
+  var no=qItems.slice(0,i).filter(function(x){return !x.divider&&!x.blank&&!(x.nm===''&&x.qty===0&&x.unit===0)&&x.nm!=='— 이 하 여 백 —';}).length+1;
   var tot=qi.qty*(qi.unit+qi.extra);
   return '<tr>'
     +'<td style="text-align:center">'+no+'</td>'
