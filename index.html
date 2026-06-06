@@ -1148,6 +1148,11 @@ function openAddrSearch(){
   if(typeof daum!=='undefined'&&daum.Postcode){run();}
   else{var s=document.createElement('script');s.src='https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';s.onload=function(){setTimeout(run,300);};document.head.appendChild(s);}
 }
+function closeAddrSearch(){
+  var m=document.getElementById('m-addr'),w=document.getElementById('mc-addr-wrap');
+  if(m)m.style.display='none';
+  if(w)w.innerHTML='';
+}
 function q2ledger(){
   if(!qItems.length){toast('품목이 없습니다','terr');return;}
   const sup=qItems.reduce((s,qi)=>s+qi.qty*(qi.unit+qi.extra),0),vt=Math.round(sup*.1);
