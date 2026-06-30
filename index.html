@@ -308,6 +308,11 @@ select.fs{height:32px;box-sizing:border-box;}
     <button class="nt" onclick="goP('as')">🔧 A/S관리</button>
   </div>
   </div>
+  <div style="display:flex;align-items:center;gap:6px;margin-left:auto;padding:0 12px;flex-shrink:0;">
+    <span style="font-size:11px;color:var(--mu);white-space:nowrap;">☁️ 클라우드</span>
+    <button onclick="pushToFirestore()" style="padding:4px 10px;border:1px solid var(--bd);background:var(--s3);color:var(--tx);border-radius:14px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;" title="이 기기 데이터를 클라우드에 올립니다">📤 업로드</button>
+    <button onclick="syncFromFirestore()" style="padding:4px 10px;border:1px solid var(--bd);background:var(--s3);color:var(--tx);border-radius:14px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;" title="클라우드에서 최신 데이터를 가져옵니다">🔄 불러오기</button>
+  </div>
 </nav>
 <div class="pages">
 
@@ -2125,30 +2130,74 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelect
 
 
 // ══ FIRESTORE 동기화 ══
-// 페이지 로드 시 Firestore에서 최신 데이터를 불러와 모든 기기에서 같은 데이터를 사용
+// 페이지 로드 시:
+//   1) Firestore에 데이터가 있으면 → Firestore 데이터 우선(항상 최신 기준)
+//   2) Firestore가 비어있고 localStorage에 데이터가 있으면 → 자동 마이그레이션(한 번만)
 async function syncFromFirestore(){
   try{
     var keys=['du4_l','du4_c2','du4_p','du4_as','du4_ql','du4_vd','du4_pu_e','du4_pm_e'];
+    var localMap={
+      'du4_l':ledger,'du4_c2':custs,'du4_p':projs,'du4_as':asItems,
+      'du4_ql':quoteList,'du4_vd':vendors,'du4_pu_e':PU,'du4_pm_e':PM
+    };
+
     var docs=await Promise.all(keys.map(function(k){return db.collection('storage').doc(k).get();}));
-    var hasData=false;
-    docs.forEach(function(doc,i){
-      if(doc.exists){
-        hasData=true;
-        var data=doc.data().data;
-        localStorage.setItem(keys[i],JSON.stringify(data));
-        if(keys[i]==='du4_l')ledger=data;
-        else if(keys[i]==='du4_c2')custs=data;
-        else if(keys[i]==='du4_p')projs=data;
-        else if(keys[i]==='du4_as')asItems=data;
-        else if(keys[i]==='du4_ql')quoteList=data;
-        else if(keys[i]==='du4_vd')vendors=data;
-        else if(keys[i]==='du4_pu_e')PU=data;
-        else if(keys[i]==='du4_pm_e')PM=data;
+
+    // Firestore에 저장된 키가 하나라도 있는지 확인
+    var firestoreHasData=docs.some(function(doc){return doc.exists;});
+
+    if(firestoreHasData){
+      // ── Firestore 데이터를 메모리 + localStorage에 반영 ──
+      docs.forEach(function(doc,i){
+        if(doc.exists){
+          var data=doc.data().data;
+          localStorage.setItem(keys[i],JSON.stringify(data));
+          if(keys[i]==='du4_l')ledger=data;
+          else if(keys[i]==='du4_c2')custs=data;
+          else if(keys[i]==='du4_p')projs=data;
+          else if(keys[i]==='du4_as')asItems=data;
+          else if(keys[i]==='du4_ql')quoteList=data;
+          else if(keys[i]==='du4_vd')vendors=data;
+          else if(keys[i]==='du4_pu_e')PU=data;
+          else if(keys[i]==='du4_pm_e')PM=data;
+        }
+      });
+      rdDash();rdLedger();rdDashFlow();
+      toast('✅ Firestore 동기화 완료');
+    } else {
+      // ── Firestore가 비어있음 → localStorage 데이터를 Firestore로 마이그레이션 ──
+      var localHasData=keys.some(function(k){return localStorage.getItem(k);});
+      if(localHasData){
+        toast('📤 데이터를 클라우드에 업로드 중...');
+        var batch=db.batch();
+        keys.forEach(function(k){
+          var val=localMap[k];
+          if(val&&(Array.isArray(val)?val.length>0:true)){
+            batch.set(db.collection('storage').doc(k),{data:val});
+          }
+        });
+        await batch.commit();
+        toast('✅ 클라우드 업로드 완료! 이제 모든 기기에서 같은 데이터를 사용합니다.');
       }
-    });
-    if(hasData){rdDash();rdLedger();rdDashFlow();toast('✅ 데이터 동기화 완료');}
+    }
   }catch(e){
     console.error('Firestore 동기화 실패:',e);
+    toast('⚠️ 동기화 실패 (네트워크 확인)','terr');
+  }
+}
+
+// Firestore 데이터를 강제로 현재 기기 데이터로 덮어쓰기 (수동 업로드)
+async function pushToFirestore(){
+  try{
+    toast('📤 현재 데이터를 클라우드에 업로드 중...');
+    var batch=db.batch();
+    var entries={'du4_l':ledger,'du4_c2':custs,'du4_p':projs,'du4_as':asItems,'du4_ql':quoteList,'du4_vd':vendors,'du4_pu_e':PU,'du4_pm_e':PM};
+    Object.keys(entries).forEach(function(k){batch.set(db.collection('storage').doc(k),{data:entries[k]});});
+    await batch.commit();
+    toast('✅ 클라우드 업로드 완료!');
+  }catch(e){
+    console.error('Firestore 업로드 실패:',e);
+    toast('⚠️ 업로드 실패','terr');
   }
 }
 
