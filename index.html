@@ -275,6 +275,19 @@ select.fs{height:32px;box-sizing:border-box;}
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
+  // Firebase 초기화 — Firestore 연동으로 모든 기기에서 동일한 데이터를 사용할 수 있습니다
+  const firebaseConfig = {
+    apiKey: "AIzaSyCLh_uaUEEj311C40csz0p12XXD3W7Vbx4",
+    authDomain: "thedesignuncle-managemen-c2874.firebaseapp.com",
+    projectId: "thedesignuncle-managemen-c2874",
+    storageBucket: "thedesignuncle-managemen-c2874.firebasestorage.app",
+    messagingSenderId: "154625731339",
+    appId: "1:154625731339:web:da067c3807de4e5889d00e"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  </script>
 </head>
 <body>
 <div class="app">
@@ -835,13 +848,13 @@ let projs=JSON.parse(localStorage.getItem('du4_p')||'null')||IP.map((p,i)=>({id:
 let asItems=JSON.parse(localStorage.getItem('du4_as')||'[]');
 let qItems=[],selPP=[];
 let quoteList=JSON.parse(localStorage.getItem('du4_ql')||'[]');
-function sqll(){localStorage.setItem('du4_ql',JSON.stringify(quoteList));}
+function sqll(){sv('du4_ql',quoteList);}
 let editLId=null,editCId=null,editPjId=null,editASId=null;
 let lType='purchase',mType='purchase';
 let lSort={col:'date',dir:-1},lPage=1,asPage=1;
 const PER=20; let qid=0;
 
-function sv(k,v){localStorage.setItem(k,JSON.stringify(v));}
+function sv(k,v){localStorage.setItem(k,JSON.stringify(v));db.collection('storage').doc(k).set({data:v}).catch(function(e){console.warn('Firestore 저장 실패:',e);});}
 function sl(){sv('du4_l',ledger);} function sc(){sv('du4_c2',custs);} function sp(){sv('du4_p',projs);} function sa(){sv('du4_as',asItems);}
 function td(){return new Date().toISOString().split('T')[0];}
 function fmt(n){return '₩'+(Math.round(n)||0).toLocaleString('ko-KR');}
@@ -1145,7 +1158,7 @@ function qlDel(id){if(!confirm('삭제?'))return;quoteList=quoteList.filter(func
 function qlLoad(id){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;qItems=JSON.parse(JSON.stringify(r.items||[]));document.getElementById('q-num').value=r.qnum||'';document.getElementById('q-dt').value=r.date||'';document.getElementById('q-co').value=r.company||'';document.getElementById('q-cn').value=r.name||'';document.getElementById('q-tel').value=r.tel||'';document.getElementById('q-em').value=r.email||'';document.getElementById('q-addr').value=r.addr||'';var pjSel=document.getElementById('q-pj-sel');if(pjSel)pjSel.value=r.title||'';goP('quote');rdQI();toast('견적서 불러오기 완료!');}
 function xlsQl(){var wb=XLSX.utils.book_new();var ws=XLSX.utils.aoa_to_sheet([['견적번호','발송일','상호명','견적명','공급가액','상태','메모']].concat(quoteList.map(function(r){return[r.qnum,r.date,r.company,r.title,r.supply,r.status,r.memo];})));XLSX.utils.book_append_sheet(wb,ws,'견적관리');XLSX.writeFile(wb,'견적관리.xlsx');}
 function openPrAdd(){var md=document.getElementById('m-pr-add');if(!md)return;['pa-cat','pa-item','pa-desc','pa-unit','pa-note'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var el=document.getElementById('pa-price');if(el)el.value='';md.style.display='';}
-function savePrAdd(){var src=(document.getElementById('pa-src')||{value:'uncle'}).value;var cat=(document.getElementById('pa-cat')||{value:''}).value.trim();var item=(document.getElementById('pa-item')||{value:''}).value.trim();var price=parseInt(((document.getElementById('pa-price')||{value:'0'}).value+'').replace(/[^0-9]/g,''))||0;var desc=(document.getElementById('pa-desc')||{value:''}).value.trim();var unit=(document.getElementById('pa-unit')||{value:''}).value.trim();var note=(document.getElementById('pa-note')||{value:''}).value.trim();if(!cat||!item){toast('카테고리와 품목명은 필수입니다','terr');return;}var all=src==='uncle'?PU:PM;all.push({cat:cat,item:item,desc:desc||item,price:price,unit:unit,note:note,key:cat+'|'+item});localStorage.setItem(src==='uncle'?'du4_pu_e':'du4_pm_e',JSON.stringify(all));cm('m-pr-add');rdPr();toast('✅ 품목 추가: '+item);}
+function savePrAdd(){var src=(document.getElementById('pa-src')||{value:'uncle'}).value;var cat=(document.getElementById('pa-cat')||{value:''}).value.trim();var item=(document.getElementById('pa-item')||{value:''}).value.trim();var price=parseInt(((document.getElementById('pa-price')||{value:'0'}).value+'').replace(/[^0-9]/g,''))||0;var desc=(document.getElementById('pa-desc')||{value:''}).value.trim();var unit=(document.getElementById('pa-unit')||{value:''}).value.trim();var note=(document.getElementById('pa-note')||{value:''}).value.trim();if(!cat||!item){toast('카테고리와 품목명은 필수입니다','terr');return;}var all=src==='uncle'?PU:PM;all.push({cat:cat,item:item,desc:desc||item,price:price,unit:unit,note:note,key:cat+'|'+item});sv(src==='uncle'?'du4_pu_e':'du4_pm_e',all);cm('m-pr-add');rdPr();toast('✅ 품목 추가: '+item);}
 function openAddrSearch(){
   var modal=document.getElementById('m-addr'),wrap=document.getElementById('mc-addr-wrap');
   if(!modal||!wrap)return;
@@ -1238,7 +1251,7 @@ function fltPr(){const src=document.getElementById('pr-src').value,all=src==='un
 }
 function prAddQ(btn){var gi=+btn.dataset.gi,src=btn.dataset.src,fl=window._prFL;if(!fl||!fl[gi])return;var p=fl[gi],pr=p.price||p.supplyPrice||0;pr2Q(p.cat,p.item,p.desc||p.item,pr);}
 function prEditQ(btn){var ri=+btn.dataset.ri,src=btn.dataset.src;editPr(src,ri);}
-function editPr(src,idx){var all=src==='uncle'?PU:PM;var p=all[idx];if(!p)return;var pr=p.price||p.supplyPrice||0;var nv=prompt(p.item+' 단가 수정\n현재: '+pr.toLocaleString()+'원\n새 금액:',pr);if(nv===null)return;var n=parseInt((nv+'').replace(/[^0-9]/g,''));if(isNaN(n)||n<0){toast('올바른 금액을 입력하세요','terr');return;}if(p.price!==undefined)p.price=n;if(p.supplyPrice!==undefined)p.supplyPrice=n;localStorage.setItem(src==='uncle'?'du4_pu_e':'du4_pm_e',JSON.stringify(all));rdPr();toast('단가 수정: '+n.toLocaleString()+'원');}
+function editPr(src,idx){var all=src==='uncle'?PU:PM;var p=all[idx];if(!p)return;var pr=p.price||p.supplyPrice||0;var nv=prompt(p.item+' 단가 수정\n현재: '+pr.toLocaleString()+'원\n새 금액:',pr);if(nv===null)return;var n=parseInt((nv+'').replace(/[^0-9]/g,''));if(isNaN(n)||n<0){toast('올바른 금액을 입력하세요','terr');return;}if(p.price!==undefined)p.price=n;if(p.supplyPrice!==undefined)p.supplyPrice=n;sv(src==='uncle'?'du4_pu_e':'du4_pm_e',all);rdPr();toast('단가 수정: '+n.toLocaleString()+'원');}
 function pr2Q(cat,nm,desc,price){qid++;qItems.push({id:qid,cat,nm,desc,qty:1,unit:+price,extra:0});toast('✅ "'+nm+'" 견적에 추가!','tinf');}
 function xlsPr(){const src=document.getElementById('pr-src').value,all=src==='uncle'?PU:PM;const wb=XLSX.utils.book_new();const h=src==='uncle'?['카테고리','품목','작업내용','단가','단위','비고']:['카테고리','품목','난이도','기본시간','시간당단가','디자인원가','공급단가'];const ws=XLSX.utils.aoa_to_sheet([h,...all.map(p=>src==='uncle'?[p.cat,p.item,p.desc,p.price,p.unit,p.note]:[p.cat,p.item,p.level,p.hours,p.rate,p.designCost,p.supplyPrice])]);XLSX.utils.book_append_sheet(wb,ws,'단가표');XLSX.writeFile(wb,'단가표_'+new Date().toISOString().slice(0,10)+'.xlsx');toast('📊 단가표 엑셀!');}
 
@@ -1846,7 +1859,7 @@ const INIT_VENDORS = (()=>{
 
 let vendors=JSON.parse(localStorage.getItem('du4_vd')||'null')||INIT_VENDORS;
 let editVdId=null;
-function sv_vd(){localStorage.setItem('du4_vd',JSON.stringify(vendors));}
+function sv_vd(){sv('du4_vd',vendors);}
 
 function fltVd(){
   var q=document.getElementById('vd-q').value.toLowerCase(),tf=document.getElementById('vd-type').value,cf=document.getElementById('vd-cat').value;
@@ -2110,8 +2123,38 @@ function autoPjName(){
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.ov').forEach(o=>o.style.display='none');});
 
 
+
+// ══ FIRESTORE 동기화 ══
+// 페이지 로드 시 Firestore에서 최신 데이터를 불러와 모든 기기에서 같은 데이터를 사용
+async function syncFromFirestore(){
+  try{
+    var keys=['du4_l','du4_c2','du4_p','du4_as','du4_ql','du4_vd','du4_pu_e','du4_pm_e'];
+    var docs=await Promise.all(keys.map(function(k){return db.collection('storage').doc(k).get();}));
+    var hasData=false;
+    docs.forEach(function(doc,i){
+      if(doc.exists){
+        hasData=true;
+        var data=doc.data().data;
+        localStorage.setItem(keys[i],JSON.stringify(data));
+        if(keys[i]==='du4_l')ledger=data;
+        else if(keys[i]==='du4_c2')custs=data;
+        else if(keys[i]==='du4_p')projs=data;
+        else if(keys[i]==='du4_as')asItems=data;
+        else if(keys[i]==='du4_ql')quoteList=data;
+        else if(keys[i]==='du4_vd')vendors=data;
+        else if(keys[i]==='du4_pu_e')PU=data;
+        else if(keys[i]==='du4_pm_e')PM=data;
+      }
+    });
+    if(hasData){rdDash();rdLedger();rdDashFlow();toast('✅ 데이터 동기화 완료');}
+  }catch(e){
+    console.error('Firestore 동기화 실패:',e);
+  }
+}
+
 // ══ INIT ══
 document.getElementById('lf-d').value=td();
 rdDash();rdLedger();rdDashFlow();
+syncFromFirestore();
 </script>
 </body></html>
