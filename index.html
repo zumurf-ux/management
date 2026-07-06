@@ -562,7 +562,7 @@ select.fs{height:32px;box-sizing:border-box;}
       <select class="fs" onchange="fltVd()" id="vd-type"><option value="">전체 구분</option><option>매입처</option><option>매출처</option><option>둘다</option></select>
       <select class="fs" onchange="fltVd()" id="vd-cat"><option value="">전체 분류</option><option>인쇄 / 출력</option><option>자재 / 용품</option><option>온라인쇼핑몰</option><option>외주</option><option>장비 / 소모품</option><option>기타</option></select>
     </div>
-    <div class="tbr"><button class="tbr-add" onclick="openVdMd()">+ 추가</button><select class="fs" onchange="fltVd()" id="vd-sort"><option value="nm-asc">이름 ↑</option><option value="nm-desc">이름 ↓</option><option value="amt-desc">매입액 ↓</option><option value="cnt-desc">건수 ↓</option></select><button class="vbtn on" id="vd-view-card-btn" onclick="setVdView('card')">▦</button><button class="vbtn" id="vd-view-table-btn" onclick="setVdView('table')">☰</button><button class="tbr-ico" onclick="xlsVd()">📊</button></div>
+    <div class="tbr"><button class="tbr-add" onclick="openVdMd()">+ 추가</button><select class="fs" onchange="fltVd()" id="vd-sort"><option value="nm-asc">이름 ↑</option><option value="nm-desc">이름 ↓</option><option value="amt-desc">매입액 ↓</option><option value="sale-desc">매출액 ↓</option><option value="cnt-desc">건수 ↓</option></select><button class="vbtn on" id="vd-view-card-btn" onclick="setVdView('card')">▦</button><button class="vbtn" id="vd-view-table-btn" onclick="setVdView('table')">☰</button><button class="tbr-ico" onclick="xlsVd()">📊</button></div>
   </div>
   <div class="cg3" id="vd-grid" style="padding:14px"></div>
 </div>
@@ -1874,6 +1874,7 @@ function fltVd(){
   var flt=vendors.filter(function(v){if(tf&&v.btype!==tf)return false;if(cf&&v.category!==cf)return false;if(q&&!v.name.toLowerCase().includes(q)&&!(v.memo||'').toLowerCase().includes(q)&&!(v.item||'').toLowerCase().includes(q))return false;return true;});
   if(sv==='nm-desc')flt.sort(function(a,b){return b.name.localeCompare(a.name,'ko');});
   else if(sv==='amt-desc')flt.sort(function(a,b){return getAmt(b.name)-getAmt(a.name);});
+  else if(sv==='sale-desc')flt.sort(function(a,b){var sA=ledger.filter(function(r){return r.client===a.name&&r.type==='sales';}).reduce(function(s,r){return s+sf(r.amount);},0);var sB=ledger.filter(function(r){return r.client===b.name&&r.type==='sales';}).reduce(function(s,r){return s+sf(r.amount);},0);return sB-sA;});
   else if(sv==='cnt-desc')flt.sort(function(a,b){return ledger.filter(function(r){return r.client===b.name;}).length-ledger.filter(function(r){return r.client===a.name;}).length;});
   else flt.sort(function(a,b){return a.name.localeCompare(b.name,'ko');});
   var el=document.getElementById('vd-grid');
