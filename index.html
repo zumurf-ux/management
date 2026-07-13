@@ -967,7 +967,7 @@ function filterL(){lPage=1;rdLedger();}
 function rdLedger(){
   var lv=localStorage.getItem('v_l')||'table';setVBtn('l-view-card-btn','l-view-table-btn',lv);
   document.getElementById('dl-cl').innerHTML=[...new Set(ledger.map(r=>r.client))].map(c=>`<option value="${esc(c)}">`).join('');
-  document.getElementById('dl-pj').innerHTML=[...new Set(ledger.map(r=>r.project).filter(Boolean))].map(p=>`<option value="${esc(p)}">`).join('');
+  document.getElementById('dl-pj').innerHTML=[...new Set(projs.map(p=>p.projName).filter(Boolean))].map(p=>`<option value="${esc(p)}">`).join('');
   const flt=getFL(),tp=Math.max(1,Math.ceil(flt.length/PER));if(lPage>tp)lPage=tp;
   var paged=flt.slice((lPage-1)*PER,lPage*PER);
   var lCW=document.getElementById('l-card-wrap'),lTW=document.getElementById('l-table-wrap');
