@@ -649,6 +649,25 @@ select.fs{height:32px;box-sizing:border-box;}
   </div>
 </div></div>
 
+<!-- 단가표 품목 추가 -->
+<div class="ov" id="m-pr-add" style="display:none"><div class="modal">
+  <div class="mt">➕ 단가표 품목 추가</div>
+  <div class="mf">
+    <div class="r2">
+      <div class="fg"><label for="pa-src">단가표 *</label><select id="pa-src"><option value="uncle">디자인하는삼촌 단가</option><option value="mid">중급 단가표 (참고)</option></select></div>
+      <div class="fg"><label for="pa-cat">카테고리 *</label><input type="text" id="pa-cat" placeholder="예: 브랜드 디자인"></div>
+    </div>
+    <div class="fg"><label for="pa-item">품목명 *</label><input type="text" id="pa-item" placeholder="추가할 품목명"></div>
+    <div class="fg"><label for="pa-desc">작업내용</label><input type="text" id="pa-desc" placeholder="품목에 대한 작업내용"></div>
+    <div class="r2">
+      <div class="fg"><label for="pa-price">단가</label><input type="number" id="pa-price" min="0" step="1000" placeholder="0"></div>
+      <div class="fg"><label for="pa-unit">단위</label><input type="text" id="pa-unit" placeholder="예: 1식, 1종"></div>
+    </div>
+    <div class="fg"><label for="pa-note">비고</label><textarea id="pa-note" style="min-height:44px" placeholder="추가 안내사항"></textarea></div>
+  </div>
+  <div class="ma2"><button class="btn bgh" onclick="cm('m-pr-add')">취소</button><button class="btn bg" onclick="savePrAdd()">저장</button></div>
+</div></div>
+
 <!-- 고객 추가/수정 -->
 <div class="ov" id="m-cu" style="display:none" onmousedown="ovDown(event,'m-cu')" onclick="cmov(event,'m-cu')"><div class="modal">
   <div class="mt" id="mc-t">👤 고객 추가</div>
@@ -1162,7 +1181,7 @@ function qlMemo(id,m){var r=quoteList.find(function(x){return x.id===id;});if(!r
 function qlDel(id){if(!confirm('삭제?'))return;quoteList=quoteList.filter(function(x){return x.id!==id;});sqll();rdQList();}
 function qlLoad(id){var r=quoteList.find(function(x){return x.id===id;});if(!r)return;qItems=JSON.parse(JSON.stringify(r.items||[]));document.getElementById('q-num').value=r.qnum||'';document.getElementById('q-dt').value=r.date||'';document.getElementById('q-co').value=r.company||'';document.getElementById('q-cn').value=r.name||'';document.getElementById('q-tel').value=r.tel||'';document.getElementById('q-em').value=r.email||'';document.getElementById('q-addr').value=r.addr||'';var pjSel=document.getElementById('q-pj-sel');if(pjSel)pjSel.value=r.title||'';goP('quote');rdQI();toast('견적서 불러오기 완료!');}
 function xlsQl(){var wb=XLSX.utils.book_new();var ws=XLSX.utils.aoa_to_sheet([['견적번호','발송일','상호명','견적명','공급가액','상태','메모']].concat(quoteList.map(function(r){return[r.qnum,r.date,r.company,r.title,r.supply,r.status,r.memo];})));XLSX.utils.book_append_sheet(wb,ws,'견적관리');XLSX.writeFile(wb,'견적관리.xlsx');}
-function openPrAdd(){var md=document.getElementById('m-pr-add');if(!md)return;['pa-cat','pa-item','pa-desc','pa-unit','pa-note'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var el=document.getElementById('pa-price');if(el)el.value='';md.style.display='';}
+function openPrAdd(){var md=document.getElementById('m-pr-add');if(!md)return;['pa-cat','pa-item','pa-desc','pa-unit','pa-note'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var el=document.getElementById('pa-price');if(el)el.value='';var src=document.getElementById('pa-src'),current=document.getElementById('pr-src');if(src&&current)src.value=current.value;md.style.display='';}
 function savePrAdd(){var src=(document.getElementById('pa-src')||{value:'uncle'}).value;var cat=(document.getElementById('pa-cat')||{value:''}).value.trim();var item=(document.getElementById('pa-item')||{value:''}).value.trim();var price=parseInt(((document.getElementById('pa-price')||{value:'0'}).value+'').replace(/[^0-9]/g,''))||0;var desc=(document.getElementById('pa-desc')||{value:''}).value.trim();var unit=(document.getElementById('pa-unit')||{value:''}).value.trim();var note=(document.getElementById('pa-note')||{value:''}).value.trim();if(!cat||!item){toast('카테고리와 품목명은 필수입니다','terr');return;}var all=src==='uncle'?PU:PM;all.push({cat:cat,item:item,desc:desc||item,price:price,unit:unit,note:note,key:cat+'|'+item});sv(src==='uncle'?'du4_pu_e':'du4_pm_e',all);cm('m-pr-add');rdPr();toast('✅ 품목 추가: '+item);}
 function openAddrSearch(){
   var modal=document.getElementById('m-addr'),wrap=document.getElementById('mc-addr-wrap');
