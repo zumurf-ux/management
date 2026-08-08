@@ -266,7 +266,8 @@ select.fs{height:32px;box-sizing:border-box;}
 /* 견적 품목 입력 */
 .qi{display:grid;grid-template-columns:1fr 1fr 60px 70px 100px 100px 80px 24px;gap:6px;align-items:center;padding:8px 10px;background:var(--s2);border-radius:8px;border:1px solid var(--bd);margin-bottom:5px}
 .qi-text{min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit;width:100%}
-.qii{box-sizing:border-box;min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:4px 7px;font-size:13px;font-family:'Noto Sans KR',sans-serif;text-align:right;width:100%;}
+.qii{box-sizing:border-box;min-width:0;height:30px;line-height:20px;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:4px 7px;font-size:13px;font-family:'Noto Sans KR',sans-serif;text-align:right;width:100%;}
+.qi-amount{display:flex;align-items:center;justify-content:flex-end;}
 .qii::-webkit-inner-spin-button,.qii::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 ::-webkit-scrollbar{width:0px;height:0px;background:transparent;}
 *{scrollbar-width:none;}
@@ -1068,7 +1069,7 @@ function rdQI(){
       +'<input type="text" value="'+esc(qi.unit_name||'')+'" placeholder="단위" class="qi-text" style="text-align:center" oninput="qItems['+i+'].unit_name=this.value">'
       +'<input class="qii" type="text" inputmode="numeric" value="'+(qi.qty?qi.qty.toLocaleString():'1')+'" style="text-align:center" oninput="updateQINum('+i+',\'qty\',this)" onblur="if(!qItems['+i+'].qty){qItems['+i+'].qty=1;this.value=\'1\';updateQIAmount('+i+')}">'
       +'<input class="qii" type="text" inputmode="numeric" value="'+(qi.unit?qi.unit.toLocaleString():'')+'" placeholder="단가" oninput="updateQINum('+i+',\'unit\',this)">'
-      +'<div class="qii" id="qi-amount-'+i+'" style="font-size:12px;color:var(--tx);pointer-events:none">'+(tot?tot.toLocaleString():'')+'</div>'
+      +'<div class="qii qi-amount" id="qi-amount-'+i+'" style="font-size:12px;color:var(--tx);pointer-events:none">'+(tot?tot.toLocaleString():'')+'</div>'
       +'<input type="text" value="'+esc(qi.note||'')+'" placeholder="비고" class="qi-text" oninput="qItems['+i+'].note=this.value">'
       +'<button class="bic bd2" onclick="qItems.splice('+i+',1);rdQI()">✕</button>'
       +'</div>';
@@ -1151,8 +1152,7 @@ function sendQuote(){
   var title=(document.getElementById('q-pj-sel')||{value:''}).value;
   var rec={id:Date.now(),qnum:document.getElementById('q-num').value||'DU'+dt.replace(/-/g,''),company:co,name:document.getElementById('q-cn').value,tel:document.getElementById('q-tel').value,email:document.getElementById('q-em').value,title:title||'디자인 의뢰',date:dt,exp:document.getElementById('q-exp').value,payc:document.getElementById('q-payc').value,supply:sup,vat:vt,total:sup+vt,items:JSON.parse(JSON.stringify(qItems)),status:'발송완료',memo:''};
   quoteList.unshift(rec);sqll();
-  ledger.push({id:Date.now()+1,type:'sales',date:dt,month:(dt||'').slice(0,7),quarter:'Q'+(Math.ceil((+(dt||'').slice(5,7))/3)||1),client:co,project:title,category:'매출-디자인',item:qItems.map(function(q){return q.nm;}).join(', '),qty:1,price:sup,amount:sup,shipping:0,vat:vt,total:sup+vt,payment:'미정',receipt:'세금계산서',staff:'대표삼촌',memo:'견적서 발송완료'});
-  sl();toast('✅ 견적서 발송 완료! 견적관리에 등록됨');
+  toast('✅ 견적서 발송 완료! 견적관리에 등록됨');
 }
 function rdQList(){
   var q=(document.getElementById('ql-q')||{value:''}).value.toLowerCase();
