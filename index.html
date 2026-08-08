@@ -264,8 +264,13 @@ tbody td{padding:8px 10px;vertical-align:middle}
 select.fs{height:32px;box-sizing:border-box;}
 .nt-wrap{display:flex;align-items:center;}
 /* 견적 품목 입력 */
-.qi{display:grid;grid-template-columns:1fr 1fr 60px 70px 100px 100px 80px 24px;gap:6px;align-items:center;padding:8px 10px;background:var(--s2);border-radius:8px;border:1px solid var(--bd);margin-bottom:5px}
-.qi-text{min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit;width:100%}
+.quote-main,.quote-items-card,#q-items{min-width:0}
+.quote-items-card{width:100%;box-sizing:border-box}
+#q-items{max-width:100%;overflow-x:auto}
+.qi{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 60px 70px 100px 100px 80px 24px;gap:6px;align-items:center;padding:8px 10px;background:var(--s2);border-radius:8px;border:1px solid var(--bd);margin-bottom:5px;width:100%;min-width:0;box-sizing:border-box}
+.qi>*{min-width:0;box-sizing:border-box}
+.qi-text{min-width:0;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:5px 7px;font-size:12px;outline:none;font-family:inherit;width:100%;box-sizing:border-box}
+.qi-head{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 60px 70px 100px 100px 80px 24px!important;width:100%;min-width:0;box-sizing:border-box}
 .qii{box-sizing:border-box;min-width:0;height:30px;line-height:20px;background:var(--s3);border:1px solid var(--bd);color:var(--tx);border-radius:5px;padding:4px 7px;font-size:13px;font-family:'Noto Sans KR',sans-serif;text-align:right;width:100%;}
 .qi-amount{display:flex;align-items:center;justify-content:flex-end;}
 .qii::-webkit-inner-spin-button,.qii::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
@@ -420,8 +425,8 @@ select.fs{height:32px;box-sizing:border-box;}
 
 <!-- ═══════════════ QUOTE ═══════════════ -->
 <div class="page" id="pg-quote" style="overflow:auto;padding:14px">
-  <div style="display:grid;grid-template-columns:1fr 310px;gap:12px;max-width:1260px;margin:0 auto">
-    <div style="display:flex;flex-direction:column;gap:12px">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:12px;max-width:1260px;margin:0 auto">
+    <div class="quote-main" style="display:flex;flex-direction:column;gap:12px">
       <!-- 견적 정보 -->
       <div style="background:var(--s1);border:1px solid var(--bd);border-radius:11px;padding:16px">
         <div style="font-size:13px;font-weight:700;margin-bottom:12px">📋 견적 정보</div>
@@ -454,7 +459,7 @@ select.fs{height:32px;box-sizing:border-box;}
         </div>
       </div>
       <!-- 품목 -->
-      <div style="background:var(--s1);border:1px solid var(--bd);border-radius:11px;padding:16px">
+      <div class="quote-items-card" style="background:var(--s1);border:1px solid var(--bd);border-radius:11px;padding:16px">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
           <div style="font-size:13px;font-weight:700">📦 견적 품목</div>
           <div style="display:flex;gap:5px">
@@ -464,7 +469,7 @@ select.fs{height:32px;box-sizing:border-box;}
             <button class="btn bs2 bsm" onclick="addQBlank()">빈칸</button>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 60px 70px 100px 100px 80px 24px;gap:6px;padding:3px 10px;margin-bottom:3px">
+        <div class="qi-head" style="display:grid;grid-template-columns:1fr 1fr 60px 70px 100px 100px 80px 24px;gap:6px;padding:3px 10px;margin-bottom:3px">
           <div style="font-size:9px;color:var(--dm);font-weight:700">품목명</div>
           <div style="font-size:9px;color:var(--dm);font-weight:700">작업내용</div>
           <div style="font-size:9px;color:var(--dm);font-weight:700">단위</div>
